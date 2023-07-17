@@ -1,0 +1,76 @@
+.boat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+
+  padding: 8px;
+  border: 1px solid var(--color-bronze);
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: var(--color-sand);
+  -webkit-tap-highlight-color: transparent;
+
+  transition: all 0.2s linear;
+}
+
+.boat:hover {
+  transform: translateY(-3%);
+}
+
+.name {
+  position: absolute;
+  top: 4%;
+  right: -4%;
+  z-index: 10;
+  padding: 8px 20px;
+
+  color: var(--color-darkblue4);
+  background-color: var(--color-bronze);
+  font-size: 24px;
+  border-radius: 8px;
+}
+
+.photo {
+  width: 100%;
+  height: 70%;
+  max-height: 400px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  height: 30%;
+  font-size: 16px;
+  color: var(--color-darkblue4);
+}
+
+.clause {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.clause::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+
+  background-color: var(--color-lightblue);
+}
+
+.clause:last-child::after {
+  display: none;
+}
+
+.key {
+  color: var(--color-lightblue);
+}

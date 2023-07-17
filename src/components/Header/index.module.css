@@ -1,0 +1,43 @@
+.root {
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 30px;
+
+  background-color: var(--color-headerblue);
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: right;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-family: var(--font-nice);
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+}

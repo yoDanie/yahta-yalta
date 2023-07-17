@@ -1,0 +1,21 @@
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-darkblue4);
+  border-left: 1px solid var(--color-blue);
+}
+
+::-webkit-scrollbar-thumb {
+  border-top: 2px solid var(--color-lightblue);
+  border-left: 2px solid var(--color-lightblue);
+  border-radius: 100vw;
+  background: var(--color-darkblue);
+}
+
+@supports (scrollbar-color: black blue) {
+  * {
+    scrollbar-color: var(--color-blue var) (--color-darkblue4);
+  }
+}

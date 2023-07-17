@@ -1,0 +1,101 @@
+.root {
+  background: linear-gradient(to bottom, var(--color-darkblue), var(--color-darkblue3));
+}
+
+.root::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: hsla(215, 30%, 2%, 0.8);
+  z-index: 10;
+}
+
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.cards {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.card {
+  width: 25%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.6% 1.2% 0 1.2%;
+  background: url(./polaroid-bg.jpg) repeat;
+  border: 1px solid black;
+  transition: transform 0.5s ease-in-out;
+}
+
+.card:nth-child(odd) {
+  z-index: 2;
+  transform: rotate(-5deg);
+}
+
+.card:nth-child(even) {
+  transform: rotate(5deg);
+  z-index: 3;
+}
+
+.card:hover {
+  transform: scale(1.4);
+  z-index: 4;
+}
+
+.photo {
+  height: 80%;
+}
+
+.caption {
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  text-align: center;
+  font-family: var(--font-nice);
+  font-size: 20px;
+  color: black;
+}
+
+.callToAction {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 50%;
+}
+
+.text {
+  line-height: 1.2;
+  font-size: 25px;
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+}
+
+.polaroid {
+  height: 320px;
+  width: 250px;
+}
