@@ -36,10 +36,10 @@ body {
   height: 100%;
   width: 100%;
   line-height: 1;
-  font-family: var(--font-main);
+  font-family: $font-main;
   font-weight: 500;
   font-size: 18px;
-  color: var(--color-white);
+  color: $color-white;
   background-color: $color-darkblue;
   -webkit-tap-highlight-color: transparent;
 }

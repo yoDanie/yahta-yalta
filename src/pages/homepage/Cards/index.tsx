@@ -4,8 +4,8 @@ import cardImage1 from './cards-1.jpg'
 import cardImage2 from './cards-2.jpg'
 import cardImage3 from './cards-3.jpg'
 import bgImage from './cards-bg-2.jpg'
+import styles from './index.module.scss'
 import polaroidImage from './polaroid.png'
-import styles from './index.module.css'
 
 export const Cards = () => (
   <Section className={styles.root} title="Наполните жизнь приятными моментами...">

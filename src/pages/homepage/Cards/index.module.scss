@@ -1,13 +1,13 @@
 .root {
   background: linear-gradient(to bottom, $color-darkblue, $color-darkblue3);
-}
 
-.root::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-color: hsla(215, 30%, 2%, 0.8);
-  z-index: 10;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: hsla(215, 30%, 2%, 0.8);
+    z-index: 10;
+  }
 }
 
 .bgImage {
@@ -36,21 +36,19 @@
   background: url(./polaroid-bg.jpg) repeat;
   border: 1px solid black;
   transition: transform 0.5s ease-in-out;
-}
 
-.card:nth-child(odd) {
-  z-index: 2;
-  transform: rotate(-5deg);
-}
-
-.card:nth-child(even) {
-  transform: rotate(5deg);
-  z-index: 3;
-}
-
-.card:hover {
-  transform: scale(1.4);
-  z-index: 4;
+  &:hover {
+    transform: scale(1.4);
+    z-index: 4;
+  }
+  &:nth-child(odd) {
+    z-index: 2;
+    transform: rotate(-5deg);
+  }
+  &:nth-child(even) {
+    transform: rotate(5deg);
+    z-index: 3;
+  }
 }
 
 .photo {
