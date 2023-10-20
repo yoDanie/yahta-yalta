@@ -1,5 +1,4 @@
-@import url(./vars.css);
-@import url(./scrollbar.css);
+@import './scrollbar.scss';
 /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700'); */
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@300;500;700');
 
@@ -8,13 +7,6 @@
   src: url('../fonts/mavka.otf');
   font-weight: normal;
   font-style: normal;
-}
-
-.icon {
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: all 0.2s linear;
 }
 
 * {
@@ -49,6 +41,7 @@ body {
   font-size: 18px;
   color: var(--color-white);
   background-color: var(--color-darkblue);
+  -webkit-tap-highlight-color: transparent;
 }
 
 input,
@@ -120,10 +113,4 @@ h6 {
 dl,
 dd {
   margin: 0;
-}
-
-@media (max-width: 990px) {
-  body {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
 }

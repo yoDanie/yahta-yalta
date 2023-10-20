@@ -5,8 +5,8 @@ import anchorImage from 'icons/sea-anchor.png'
 import { Button, Divider, Image } from 'components'
 import { useIntersectionObserver } from 'hooks'
 
+import styles from './index.module.scss'
 import bgImage from './intro-1.jpg'
-import styles from './index.module.css'
 
 export const Intro = () => {
   const bottomElementRef = useRef(null)
