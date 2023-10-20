@@ -1,9 +1,7 @@
 import cn from 'classnames'
 import type { CSSProperties, ReactNode } from 'react'
 
-import { Container } from 'components/Container'
-
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 type SectionProps = {
   title: string

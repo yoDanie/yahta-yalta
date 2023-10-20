@@ -5,8 +5,8 @@ import Image from 'next/image'
 
 import { Messengers, Nav } from 'components'
 
+import styles from './index.module.scss'
 import { MessengersBtn } from './MessengersBtn'
-import styles from './index.module.css'
 
 // import useHeaderScroll from './useHeaderScroll'
 

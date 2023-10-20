@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react'
 
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 type ButtonProps = {
   className?: string

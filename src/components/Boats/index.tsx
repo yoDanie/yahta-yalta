@@ -5,7 +5,7 @@ import * as boatsImages from 'images'
 import { Section } from 'components'
 
 import { Boat } from './Boat'
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 export const Boats = () => {
   const [filters, setFilters] = useState(null)

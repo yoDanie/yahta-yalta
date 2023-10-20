@@ -1,5 +1,5 @@
 .root {
-  background: linear-gradient(to bottom, var(--color-darkblue), var(--color-darkblue3));
+  background: linear-gradient(to bottom, $color-darkblue, $color-darkblue3);
 }
 
 .root::before {
@@ -65,7 +65,7 @@
   overflow: hidden;
 
   text-align: center;
-  font-family: var(--font-nice);
+  font-family: $font-nice;
   font-size: 20px;
   color: black;
 }

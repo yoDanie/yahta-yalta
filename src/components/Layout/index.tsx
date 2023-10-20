@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 
 import { Header } from 'components'
 
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 type LayoutProps = {
   children: ReactNode

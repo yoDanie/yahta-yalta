@@ -1,6 +1,6 @@
 import cn from 'classnames'
 
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 type NavProps = {
   className?: string

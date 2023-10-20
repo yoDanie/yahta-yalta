@@ -1,25 +1,23 @@
 .root {
   position: relative;
-  height: calc(100vh - var(--header-height) + 18px);
+  height: calc(100dvh - var(--header-height) + 18px);
   width: 100%;
   z-index: 100;
-}
-
-.root::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-color: hsla(215, 30%, 2%, 0.7);
-}
-
-.root::after {
-  content: '';
-  height: 18px;
-  width: 100%;
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  background: url(../rope.png) center repeat-x;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: hsla(215, 30%, 2%, 0.7);
+  }
+  &::after {
+    content: '';
+    height: 18px;
+    width: 100%;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    background: url(../rope.png) center repeat-x;
+  }
 }
 
 .anchor {
@@ -73,24 +71,24 @@
   font-weight: 700;
   font-size: 24px;
   color: $color-bronze;
-}
 
-.title::after {
-  content: '';
-  position: absolute;
-  bottom: -12px;
-  left: 0;
-  display: block;
-  width: 100%;
-  height: 2px;
-  border-radius: 2px;
-  background-color: var(--color-bronze);
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background-color: $color-bronze;
+  }
 }
 
 .slogan {
   animation: fade 2s;
   font-weight: 500;
-  font-family: var(--font-nice);
+  font-family: $font-nice;
   font-size: 60px;
 }
 

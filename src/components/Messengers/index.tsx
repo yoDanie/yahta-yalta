@@ -2,7 +2,7 @@ import cn from 'classnames'
 import anchorIcon from 'icons/anchor.svg'
 import Image from 'next/image'
 
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 type MessengersProps = {
   className?: string

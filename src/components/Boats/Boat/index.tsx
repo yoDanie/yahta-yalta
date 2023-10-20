@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Image } from 'components'
 import { capitalize } from 'utils'
 
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 const boatMapping = {
   sailing: 'парусно-моторная',

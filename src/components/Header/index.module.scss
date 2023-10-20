@@ -10,7 +10,7 @@
   height: 80px;
   padding: 0 30px;
 
-  background-color: var(--color-headerblue);
+  background-color: $color-headerblue;
 }
 
 .info {
@@ -27,7 +27,7 @@
 }
 
 .title {
-  font-family: var(--font-nice);
+  font-family: $font-nice;
   font-size: 18px;
   text-transform: uppercase;
 }

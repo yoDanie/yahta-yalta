@@ -1,5 +1,5 @@
 @import './scrollbar.scss';
-/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700'); */
+// /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700'); */
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@300;500;700');
 
 @font-face {
@@ -40,7 +40,7 @@ body {
   font-weight: 500;
   font-size: 18px;
   color: var(--color-white);
-  background-color: var(--color-darkblue);
+  background-color: $color-darkblue;
   -webkit-tap-highlight-color: transparent;
 }
 
