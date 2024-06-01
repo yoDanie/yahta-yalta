@@ -16,7 +16,7 @@ export const Boats = () => {
       <div className={styles.boats}>
         {boatsData.map((boatData) => {
           const thumbnail = boatsImages[boatData.name][0]
-          return <Boat key={boatData.name} image={thumbnail} boatData={boatData} />
+          return <Boat key={boatData.name} image={thumbnail} {...boatData} />
         })}
       </div>
     </Section>

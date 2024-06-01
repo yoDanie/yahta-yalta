@@ -7,6 +7,13 @@ import bgImage from './cards-bg-2.jpg'
 import styles from './index.module.scss'
 import polaroidImage from './polaroid.png'
 
+const Card = ({ src, alt, caption }: any) => (
+  <div className={styles.card}>
+    <Image src={src} className={styles.photo} alt={alt} />
+    <div className={styles.caption}>{caption}</div>
+  </div>
+)
+
 export const Cards = () => (
   <Section className={styles.root} title="Наполните жизнь приятными моментами...">
     <Image
@@ -16,30 +23,19 @@ export const Cards = () => (
       src={bgImage}
       alt="фоновая картинка"
     />
-
     <div className={styles.cards}>
-      <div className={styles.card}>
-        <Image src={cardImage1} className={styles.photo} alt="Скала парус - Крым, Ялта" />
-        <div className={styles.caption}>Любуемся скалой "Парус"</div>
-      </div>
-      <div className={styles.card}>
-        <Image
-          src={cardImage2}
-          className={styles.photo}
-          alt="Замок Ласточкино Гнездо - Крым, Ялта"
-        />
-        <div className={styles.caption}>Замок "Ласточкино Гнездо"</div>
-      </div>
-      <div className={styles.card}>
-        <Image
-          src={cardImage3}
-          className={styles.photo}
-          alt="Гриль на яхте, готовка рыбы на яхте"
-        />
-        <div className={styles.caption}>Готовим свежевыловленную рыбу на гриле &#128523;</div>
-      </div>
+      <Card src={cardImage1} alt="Скала парус - Крым, Ялта" caption="Любуемся скалой 'Парус'" />
+      <Card
+        src={cardImage2}
+        alt="Замок Ласточкино Гнездо - Крым, Ялта"
+        caption="Замок 'Ласточкино Гнездо'"
+      />
+      <Card
+        src={cardImage3}
+        alt="Гриль на яхте, готовка рыбы на яхте"
+        caption="Готовим свежевыловленную рыбу на гриле &#128523;"
+      />
     </div>
-
     <div className={styles.callToAction}>
       <div className={styles.wrapper}>
         <span className={styles.text}>
@@ -47,7 +43,6 @@ export const Cards = () => (
         </span>
         <Button theme="light">Бронировать яхту</Button>
       </div>
-
       <Image className={styles.polaroid} src={polaroidImage} alt="Ваше polaroid-фото" />
     </div>
   </Section>
