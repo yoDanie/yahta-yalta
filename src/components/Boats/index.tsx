@@ -10,8 +10,6 @@ import styles from './index.module.scss'
 export const Boats = () => {
   const [filters, setFilters] = useState(null)
 
-  console.log(boatsData)
-
   return (
     <Section className={styles.root} title="Яхты и катера">
       {/* <h2>filters</h2> */}

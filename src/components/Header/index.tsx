@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import cn from 'classnames'
 import logo from 'icons/yahta-logo.svg'
@@ -7,8 +9,7 @@ import { Link, Messengers, Nav } from 'components'
 
 import styles from './index.module.scss'
 import { MessengersBtn } from './MessengersBtn'
-
-// import useHeaderScroll from './useHeaderScroll'
+import useHeaderScroll from './useHeaderScroll'
 
 export const Header = () => {
   // const burgerHandler = () => {
@@ -16,8 +17,16 @@ export const Header = () => {
   //   setBurgerActive(prev => !prev)
   // }
 
+  const headerState = useHeaderScroll()
+
   return (
-    <header className={styles.root}>
+    <header
+      className={cn(
+        styles.root,
+        headerState === 'hide' && styles.hide,
+        headerState === 'show' && styles.show,
+      )}
+    >
       <MessengersBtn />
       <Nav />
       <div className={styles.info}>
