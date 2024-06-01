@@ -1,5 +1,8 @@
 import { boatsData } from 'data'
+import shit from 'images/maestro/maestro-1.jpg'
 import { useRouter } from 'next/router'
+
+import { Header, Image, Layout } from 'components'
 
 import styles from './index.module.scss'
 
@@ -7,18 +10,17 @@ export const BoatPage = () => {
   const router = useRouter()
   const boatName = router.query.name
 
-  const boatData = boatsData.find(({ name }) => name === boatName)
+  const { name, slug, type, capacity } = boatsData.find(({ name }) => name === boatName) || {}
 
   return (
-    <div className={styles.root}>
-      <div className={styles.header}>
-        <div className={styles.photo}>main + 3 photos</div>
-        <div className={styles.info}>
-          <div className={styles.title}>{boatName}</div>
-          <div className={styles.specs}>main specs</div>
-        </div>
+    <Layout>
+      <div className={styles.intro}>
+        <div className={styles.preview}></div>
+        <Image className={styles.image} src={shit} alt={`Заглавное фото яхты ${slug}`} />
+        <div className={styles.brief}>Современная, комфортная и романтичная яхта</div>
+        <div className={styles.title}>{slug}</div>
       </div>
-    </div>
+    </Layout>
   )
 }
 
