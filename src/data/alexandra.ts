@@ -1,3 +1,5 @@
+import type { BoatData } from 'types'
+
 export const alexandra: BoatData = {
   cabins: 4,
   capacity: 10,

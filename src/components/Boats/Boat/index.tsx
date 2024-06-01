@@ -1,32 +1,41 @@
+import { boatTypeMapping } from 'consts'
 import Link from 'next/link'
+import { BoatName } from 'types'
 
 import { Image } from 'components'
-import { boatTypeMapping } from 'constants/ui'
+import { useBoatData } from 'hooks'
 import { capitalize } from 'utils'
 
 import styles from './index.module.scss'
 
-type BoatProps = BoatData & {
-  image: any
+type BoatProps = {
+  boatName: BoatName
 }
 
-export const Boat = ({ image, name, slug, type, capacity, price }: BoatProps) => (
-  <Link href={`/boat/${name}`} className={styles.root}>
-    <div className={styles.name}>{capitalize(slug)}</div>
-    <Image className={styles.photo} src={image} alt="sdf" />
-    <div className={styles.info}>
-      <div className={styles.clause}>
-        <div className={styles.key}>Тип</div>
-        <div className={styles.value}>{boatTypeMapping[type]}</div>
+export const Boat = ({ boatName }: BoatProps) => {
+  const {
+    data: { name, capacity, slug, type, price },
+    mainImage,
+  } = useBoatData(boatName)
+
+  const clauseMapping = [
+    { key: 'Тип', value: boatTypeMapping[type] },
+    { key: 'Вместимость', value: `${capacity} человек` },
+    { key: 'Цена', value: `${price.toLocaleString('ru-RU')} руб/час` },
+  ]
+
+  return (
+    <Link href={`/boat/${name}`} className={styles.root}>
+      <div className={styles.name}>{capitalize(slug)}</div>
+      <Image className={styles.photo} src={mainImage} alt="sdf" />
+      <div className={styles.info}>
+        {clauseMapping.map(({ key, value }) => (
+          <div className={styles.clause}>
+            <div className={styles.key}>{key}</div>
+            <div className={styles.value}>{value}</div>
+          </div>
+        ))}
       </div>
-      <div className={styles.clause}>
-        <div className={styles.key}>Вместимость</div>
-        <div className={styles.value}>{capacity} человек</div>
-      </div>
-      <div className={styles.clause}>
-        <div className={styles.key}>Цена</div>
-        <div className={styles.value}>{price.toLocaleString('ru-RU')} руб/час</div>
-      </div>
-    </div>
-  </Link>
-)
+    </Link>
+  )
+}

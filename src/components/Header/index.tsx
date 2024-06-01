@@ -1,5 +1,3 @@
-'use client'
-
 import { useState } from 'react'
 import cn from 'classnames'
 import logo from 'icons/yahta-logo.svg'

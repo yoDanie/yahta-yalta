@@ -2,6 +2,7 @@
   width: 100%;
   min-height: 100dvh;
   max-width: 1920px;
+  padding-top: $header-height;
   display: flex;
   flex-direction: column;
   overflow: hidden;

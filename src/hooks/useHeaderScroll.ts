@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react'
+import { HEADER_HEIGHT } from 'consts'
 
-import { HEADER_HEIGHT } from 'constants/index'
 import { throttle } from 'utils'
 
 export const useHeaderScroll = () => {
