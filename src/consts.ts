@@ -1,4 +1,7 @@
 import * as boatsData from 'data'
+import SailIcon from 'icons/dark-sail-boat.svg'
+import PeopleIcon from 'icons/users.svg'
+import WalletIcon from 'icons/wallet2.svg'
 
 import type { BoatName } from 'types'
 
@@ -10,4 +13,10 @@ export const boatTypeMapping = {
   sailing: 'парусно-моторная',
   motor: 'моторная',
   catamaran: 'катамаран',
+}
+
+export const boatIconMapping = {
+  capacity: PeopleIcon,
+  price: WalletIcon,
+  type: SailIcon,
 }

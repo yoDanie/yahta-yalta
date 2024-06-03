@@ -1,23 +1,56 @@
+import cn from 'classnames'
+import invariant from 'tiny-invariant'
+
 import { Image, Layout, Link } from 'components'
 import { useBoatData } from 'hooks'
+import { capitalize } from 'utils'
 
+import { BoatParameters } from './BoatParameters'
 import styles from './index.module.scss'
 
 export const BoatPage = () => {
-  const {
-    data: { slug, name },
-    images,
-  } = useBoatData()
+  const { data, images, mainImage } = useBoatData()
+  if (!data) return null
+
+  const { slug, name, description } = data
+
+  const thumbs = images.slice(1, 4)
 
   return (
     <Layout>
       <div className={styles.showcase}>
-        <h1 className={styles.title}>{slug}</h1>
-        <Link href={`/boat/${name}/gallery`}>gallery</Link>
-        <Image src={images[0]} alt={`Заглавное фото яхты ${slug}`} />
+        <div className={styles.photos}>
+          <Link className={cn(styles.mainImage, styles.hoverable)} href={`/boat/${name}/gallery`}>
+            <Image src={mainImage} alt={`Заглавное фото яхты ${slug}`} />
+          </Link>
+          <div className={styles.thumbs}>
+            {thumbs.map((src, index) => (
+              <Link
+                className={cn(styles.thumb, styles.hoverable)}
+                key={index}
+                href={`/boat/${name}/gallery`}
+              >
+                <Image src={src} alt={`Заглавное фото яхты ${slug}`} />
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.about}>
+          <h1 className={styles.title}>{capitalize(slug)}</h1>
+          <BoatParameters {...data} />
+        </div>
       </div>
 
-      <div className={styles.brief}>Современная, комфортная и романтичная яхта</div>
+      <div className={styles.details}>
+        <div className={styles.description}>
+          <div className={styles.subtitle}>Описание</div>
+          {description}
+        </div>
+        <div className={styles.order}>
+          <span className={styles.subtitle}>Заказать</span>
+        </div>
+      </div>
     </Layout>
   )
 }

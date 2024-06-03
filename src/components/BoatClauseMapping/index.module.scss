@@ -1,0 +1,50 @@
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-size: 16px;
+}
+
+.clause {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+
+    background-color: $color-lightblue;
+  }
+  &:last-child::after {
+    display: none;
+  }
+}
+
+.clauseDark {
+  &::after {
+    background-color: $color-bronze;
+  }
+}
+
+.keyLight {
+  color: $color-lightblue;
+}
+
+.keyDark {
+  color: $color-sand;
+}
+
+.valueLight {
+  color: $color-darkblue4;
+}
+
+.valueDark {
+  font-weight: bold;
+}

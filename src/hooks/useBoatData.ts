@@ -8,9 +8,9 @@ export const useBoatData = (name?: BoatName) => {
   const router = useRouter()
   const boatName = (router.query.name as BoatName) || name
 
-  const data: BoatData = boatsData[boatName] || {}
-  const images = BoatsImages[boatName] || []
-  const mainImage = images[0]
+  const data: BoatData = boatsData[boatName]
+  const images = BoatsImages[boatName]
+  const mainImage = images?.[0]
 
   return { data, images, mainImage }
 }

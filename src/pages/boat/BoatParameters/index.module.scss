@@ -1,0 +1,20 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  padding: 20px;
+
+  font-size: 20px;
+  border-radius: 20px;
+  @include bg-gradient2-4;
+
+  box-shadow: 0px 0px 5px 1px $color-blue;
+}
+
+.price {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  color: $color-bronze;
+}

@@ -1,8 +1,8 @@
-import { boatTypeMapping } from 'consts'
+import { boatIconMapping, boatTypeMapping } from 'consts'
 import Link from 'next/link'
 import { BoatName } from 'types'
 
-import { Image } from 'components'
+import { BoatClauseMapping, Image } from 'components'
 import { useBoatData } from 'hooks'
 import { capitalize } from 'utils'
 
@@ -13,29 +13,27 @@ type BoatProps = {
 }
 
 export const Boat = ({ boatName }: BoatProps) => {
-  const {
-    data: { name, capacity, slug, type, price },
-    mainImage,
-  } = useBoatData(boatName)
+  const { data, mainImage } = useBoatData(boatName)
+  if (!data) return null
+
+  const { name, capacity, slug, type, price } = data
 
   const clauseMapping = [
-    { key: 'Тип', value: boatTypeMapping[type] },
-    { key: 'Вместимость', value: `${capacity} человек` },
-    { key: 'Цена', value: `${price.toLocaleString('ru-RU')} руб/час` },
+    { key: 'Тип', value: boatTypeMapping[type], icon: boatIconMapping.type },
+    { key: 'Вместимость', value: `${capacity} человек`, icon: boatIconMapping.capacity },
+    {
+      key: 'Цена',
+      value: `${price.toLocaleString('ru-RU')} руб/час`,
+      icon: boatIconMapping.price,
+    },
   ]
 
   return (
     <Link href={`/boat/${name}`} className={styles.root}>
       <div className={styles.name}>{capitalize(slug)}</div>
       <Image className={styles.photo} src={mainImage} alt="sdf" />
-      <div className={styles.info}>
-        {clauseMapping.map(({ key, value }) => (
-          <div className={styles.clause}>
-            <div className={styles.key}>{key}</div>
-            <div className={styles.value}>{value}</div>
-          </div>
-        ))}
-      </div>
+
+      <BoatClauseMapping clauseMapping={clauseMapping} />
     </Link>
   )
 }

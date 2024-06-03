@@ -6,8 +6,11 @@ import styles from './index.module.scss'
 
 type ImageProps = {
   className?: string
+  containerClassname?: string
 } & NextImageProps
 
-export const Image = ({ className, ...otherProps }: ImageProps) => (
-  <NextImage className={cn(styles.root, className)} {...otherProps}></NextImage>
-)
+export const Image = ({ className, containerClassname, ...otherProps }: ImageProps) => {
+  const image = <NextImage className={cn(styles.root, className)} {...otherProps} />
+
+  return containerClassname ? <div className={containerClassname}>{image}</div> : image
+}

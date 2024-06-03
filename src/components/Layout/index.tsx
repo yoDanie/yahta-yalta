@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react'
 
-import { Header } from 'components'
-import { useSmoothScroll } from 'hooks'
+import { Header, Image } from 'components'
 
 import styles from './index.module.scss'
 

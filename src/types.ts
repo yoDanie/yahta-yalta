@@ -14,4 +14,5 @@ export type BoatData = {
   slug: string
   type: 'sailing' | 'motor' | 'catamaran'
   width?: number
+  description?: string
 }

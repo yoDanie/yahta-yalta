@@ -10,10 +10,10 @@ import type { BoatName } from 'types'
 import styles from './index.module.scss'
 
 export const GalleryPage = () => {
-  const {
-    data: { slug, name },
-    images,
-  } = useBoatData()
+  const { data, images } = useBoatData()
+  if (!data) return null
+
+  const { slug, name } = data
 
   return (
     <div className={styles.root}>

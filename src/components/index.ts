@@ -1,3 +1,4 @@
+export * from './BoatClauseMapping'
 export * from './Boats'
 export * from './Button'
 export * from './Container'
