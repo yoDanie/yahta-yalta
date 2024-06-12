@@ -1,6 +1,7 @@
 export * from './BoatClauseMapping'
 export * from './Boats'
 export * from './Button'
+export * from './Contacts'
 export * from './Container'
 export * from './Divider'
 export * from './Header'

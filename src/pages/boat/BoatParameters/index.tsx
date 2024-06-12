@@ -10,11 +10,11 @@ export const BoatParameters = (boatData: BoatData) => {
 
   const clauseMapping = [
     { key: 'Тип', value: boatTypeMapping[type] },
-    { key: 'Вмещает', value: `до ${capacity} человек` },
-    { key: 'Длина', value: `${length} м` },
-    { key: 'Ширина', value: `${width} м` },
-    { key: 'Кают', value: `${cabins}` },
-    { key: 'Спальных мест', value: `${sleeps}` },
+    { key: 'Вмещает', value: capacity ? `до ${capacity} человек` : null },
+    { key: 'Длина', value: length ? `${length} м` : null },
+    { key: 'Ширина', value: width ? `${width} м` : null },
+    { key: 'Кают', value: cabins },
+    { key: 'Спальных мест', value: sleeps },
   ]
 
   return (

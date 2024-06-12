@@ -39,7 +39,7 @@ export const Cards = () => (
     <div className={styles.callToAction}>
       <div className={styles.wrapper}>
         <span className={styles.text}>
-          Почему бы и Вам не наполнить свою жизнь прекрасными моментами?
+          Забронируйте морскую прогулку вдоль берега Ялты и добавьте яркие фото в свою коллекцию!
         </span>
         <Button theme="light">Бронировать яхту</Button>
       </div>

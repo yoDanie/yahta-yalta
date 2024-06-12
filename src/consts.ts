@@ -20,3 +20,5 @@ export const boatIconMapping = {
   price: WalletIcon,
   type: SailIcon,
 }
+
+export const dashChar = '—'

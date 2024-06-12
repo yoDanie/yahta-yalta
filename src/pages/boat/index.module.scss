@@ -8,9 +8,22 @@
 }
 
 .showcase {
+  position: relative;
   display: flex;
   gap: 20px;
-  height: calc(100dvh - $header-height);
+  height: calc(100dvh - $header-height + 14px);
+  padding-bottom: 14px;
+
+  &::after {
+    content: '';
+    height: 14px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background: url(../../icons/rope.png) center repeat-x;
+  }
 }
 
 .photos {
@@ -53,22 +66,10 @@
 
 .details {
   padding: 40px;
+  gap: 30px;
   display: flex;
   justify-content: space-between;
-}
-
-.description {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  width: 60%;
-  white-space: pre-wrap;
   line-height: 1.5;
-  text-shadow: $color-darkblue4 3px 2px 3px;
-}
-
-.order {
-  width: 40%;
 }
 
 .subtitle {
@@ -92,4 +93,24 @@
     transform: translateX(-50%);
     z-index: 1;
   }
+}
+
+.order {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 60%;
+}
+
+.descriptionText {
+  white-space: pre-wrap;
+  text-shadow: $color-darkblue4 3px 2px 3px;
 }

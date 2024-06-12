@@ -1,7 +1,6 @@
 import cn from 'classnames'
-import invariant from 'tiny-invariant'
 
-import { Image, Layout, Link } from 'components'
+import { Contacts, Image, Layout, Link } from 'components'
 import { useBoatData } from 'hooks'
 import { capitalize } from 'utils'
 
@@ -43,12 +42,13 @@ export const BoatPage = () => {
       </div>
 
       <div className={styles.details}>
+        <div className={styles.order}>
+          <div className={styles.subtitle}>Забронировать</div>
+          <Contacts />
+        </div>
         <div className={styles.description}>
           <div className={styles.subtitle}>Описание</div>
-          {description}
-        </div>
-        <div className={styles.order}>
-          <span className={styles.subtitle}>Заказать</span>
+          <div className={styles.descriptionText}>{description}</div>
         </div>
       </div>
     </Layout>
