@@ -6,7 +6,7 @@ import type { BoatData, BoatName } from 'types'
 
 export const useBoatData = (name?: BoatName) => {
   const router = useRouter()
-  const boatName = (router.query.name as BoatName) || name
+  const boatName = name || (router.query.name as BoatName)
 
   const data: BoatData = boatsData[boatName]
   const images = BoatsImages[boatName]

@@ -1,5 +1,6 @@
 .hoverable {
-  transition: all 0.4s ease;
+  position: relative;
+  transition: all 0.2s ease;
   cursor: pointer;
 
   &:hover {
@@ -35,12 +36,14 @@
 
 .mainImage {
   height: 70%;
+  overflow: hidden;
 }
 
 .thumbs {
   height: 28%;
   display: flex;
   gap: 10px;
+  overflow: hidden;
 }
 
 .thumb {

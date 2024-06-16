@@ -1,9 +1,10 @@
 import * as boatsData from 'data'
+import CloseIcon from 'icons/cross.svg'
 import * as BoatsImages from 'images'
 import shit from 'images/maestro/maestro-1.jpg'
 import { useRouter } from 'next/router'
-import { Navigation, Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { Keyboard, Lazy, Navigation, Pagination, Scrollbar, Thumbs } from 'swiper/modules'
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
 
 import { Image, Link } from 'components'
 import { useBoatData } from 'hooks'
@@ -21,30 +22,45 @@ export const GalleryPage = () => {
 
   const { slug, name } = data
 
+  const router = useRouter()
+  const { initialSlide = 0 } = router?.query // Access query parameters
+
   return (
     <div className={styles.root}>
-      <Link href={`/boat/${name}`}>
-        <div className={styles.close}>Close</div>
+      <Link href={`/boat/${name}`} className={styles.close}>
+        <Image src={CloseIcon} alt="закрыть" />
       </Link>
-      <Swiper
-        spaceBetween={50}
-        slidesPerView={3}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
-        modules={[Navigation, Pagination]}
-      >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-      </Swiper>
-      {/* {images.map((src, index) => (
-        <SwiperSlide key={index}>
-          <div className={styles.item}>
-            <Image key={index} src={src} alt={`Заглавное фото яхты `} />
-          </div>
-        </SwiperSlide>
-      ))} */}
+
+      <div className={styles.swiperWrapper}>
+        <Swiper
+          grabCursor
+          loop
+          navigation
+          pagination
+          initialSlide={Number(initialSlide)}
+          scrollbar={{ enabled: true }}
+          spaceBetween={50}
+          keyboard={{ enabled: true }}
+          // thumbs={{swiper:}}
+          slidesPerView={1}
+          // onSlideChange={(swiper) => console.log(swiper)}
+          // onSwiper={(swiper) => console.log(swiper)}
+          modules={[Navigation, Thumbs, Keyboard, Scrollbar]}
+          className={styles.swiper}
+        >
+          {images.map((src, index) => (
+            <SwiperSlide key={index}>
+              <Image
+                containerClassname={styles.photo}
+                className={styles.img}
+                key={index}
+                src={src}
+                alt={`Заглавное фото яхты `}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   )
 }

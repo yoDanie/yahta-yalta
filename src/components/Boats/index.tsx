@@ -1,19 +1,27 @@
 import { boatsNames } from 'consts'
 
 import { Section } from 'components'
+import type { BoatName } from 'types'
 
 import { Boat } from './Boat'
 import styles from './index.module.scss'
 
-export const Boats = () => {
+type BoatsProps = {
+  title?: string
+  currentBoat?: BoatName
+}
+
+export const Boats = ({ title = 'Яхты и катера', currentBoat }: BoatsProps) => {
   // const [filters, setFilters] = useState(null)
 
+  const filteredBoatNames = boatsNames.filter((name) => name !== currentBoat)
+
   return (
-    <Section className={styles.root} title="Яхты и катера">
+    <Section className={styles.root} title={title}>
       {/* <h2>filters</h2> */}
 
       <div className={styles.boats} id="boats">
-        {boatsNames.map((boatName, index) => {
+        {filteredBoatNames.map((boatName, index) => {
           return <Boat key={index} boatName={boatName} />
         })}
       </div>

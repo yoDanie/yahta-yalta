@@ -24,8 +24,8 @@ export const Contacts = () => {
   return (
     <>
       <div className={styles.root}>
-        {chatsMapping.map(({ alt, href, src }) => (
-          <a href={href} className={styles.icon} target="_blank">
+        {chatsMapping.map(({ alt, href, src }, index) => (
+          <a key={index} href={href} className={styles.icon} target="_blank">
             <Image src={src} alt={alt} />
           </a>
         ))}
