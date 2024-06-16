@@ -4,7 +4,7 @@ import { BoatName } from 'types'
 
 import { BoatClauseMapping, Image } from 'components'
 import { useBoatData } from 'hooks'
-import { capitalize } from 'utils'
+import { capitalize, formatPrice } from 'utils'
 
 import styles from './index.module.scss'
 
@@ -23,7 +23,7 @@ export const Boat = ({ boatName }: BoatProps) => {
     { key: 'Вместимость', value: `${capacity} человек`, icon: boatIconMapping.capacity },
     {
       key: 'Цена',
-      value: `${price.toLocaleString('ru-RU')} руб/час`,
+      value: formatPrice(price),
       icon: boatIconMapping.price,
     },
   ]
@@ -31,7 +31,7 @@ export const Boat = ({ boatName }: BoatProps) => {
   return (
     <Link href={`/boat/${name}`} className={styles.root}>
       <div className={styles.name}>{capitalize(slug)}</div>
-      <Image className={styles.photo} src={mainImage} alt="sdf" />
+      <Image loading="lazy" className={styles.photo} src={mainImage} alt="sdf" />
 
       <BoatClauseMapping clauseMapping={clauseMapping} />
     </Link>

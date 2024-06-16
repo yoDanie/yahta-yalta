@@ -1,62 +1,86 @@
-import * as boatsData from 'data'
 import CloseIcon from 'icons/cross.svg'
-import * as BoatsImages from 'images'
-import shit from 'images/maestro/maestro-1.jpg'
 import { useRouter } from 'next/router'
-import { Keyboard, Lazy, Navigation, Pagination, Scrollbar, Thumbs } from 'swiper/modules'
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
+import { Controller, FreeMode, Keyboard, Navigation, Thumbs } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import type { SwiperClass } from 'swiper/react'
 
 import { Image, Link } from 'components'
 import { useBoatData } from 'hooks'
-import type { BoatName } from 'types'
 
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
 import 'swiper/css'
+import 'swiper/css/free-mode'
+import 'swiper/css/navigation'
+import 'swiper/css/thumbs'
+
+import { useEffect, useState } from 'react'
 
 import styles from './index.module.scss'
+import { useEscapeKey } from './useEscapeKey'
+
+const modEnabled = {
+  enabled: true,
+}
 
 export const GalleryPage = () => {
   const { data, images } = useBoatData()
-  if (!data) return null
-
-  const { slug, name } = data
 
   const router = useRouter()
-  const { initialSlide = 0 } = router?.query // Access query parameters
+  const { initialSlide = 0 } = router?.query
+
+  useEscapeKey(data?.name)
+
+  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
+
+  if (!images) return null
 
   return (
     <div className={styles.root}>
-      <Link href={`/boat/${name}`} className={styles.close}>
+      <Link href={`/boat/${data?.name}`} className={styles.close}>
         <Image src={CloseIcon} alt="закрыть" />
       </Link>
 
       <div className={styles.swiperWrapper}>
         <Swiper
-          grabCursor
           loop
           navigation
-          pagination
           initialSlide={Number(initialSlide)}
-          scrollbar={{ enabled: true }}
-          spaceBetween={50}
-          keyboard={{ enabled: true }}
-          // thumbs={{swiper:}}
-          slidesPerView={1}
-          // onSlideChange={(swiper) => console.log(swiper)}
-          // onSwiper={(swiper) => console.log(swiper)}
-          modules={[Navigation, Thumbs, Keyboard, Scrollbar]}
           className={styles.swiper}
+          scrollbar={modEnabled}
+          keyboard={modEnabled}
+          slidesPerView={1}
+          //
+          thumbs={{ swiper: thumbsSwiper }}
+          modules={[Navigation, Controller, Thumbs, Keyboard, FreeMode]}
         >
           {images.map((src, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={src.src}>
               <Image
+                priority
                 containerClassname={styles.photo}
                 className={styles.img}
                 key={index}
                 src={src}
                 alt={`Заглавное фото яхты `}
               />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      <div className={styles.swiperThumbs}>
+        <Swiper
+          spaceBetween={10}
+          slidesPerView={5}
+          //
+          modules={[FreeMode, Navigation, Thumbs]}
+          onSwiper={setThumbsSwiper}
+          // freeMode
+          // watchSlidesProgress
+          className={styles.swiper}
+        >
+          {images.map((src, index) => (
+            <SwiperSlide key={src.src}>
+              <Image src={src} alt={`Thumbnail ${index}`} />
             </SwiperSlide>
           ))}
         </Swiper>

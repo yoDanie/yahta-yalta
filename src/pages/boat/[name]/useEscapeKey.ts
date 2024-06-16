@@ -1,0 +1,22 @@
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+
+import type { BoatName } from 'types'
+
+export const useEscapeKey = (boatName: BoatName) => {
+  const router = useRouter()
+
+  useEffect(() => {
+    const handleEsc = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        router.push(`/boat/${boatName}`)
+      }
+    }
+
+    document.addEventListener('keydown', handleEsc)
+
+    return () => {
+      document.removeEventListener('keydown', handleEsc)
+    }
+  }, [])
+}

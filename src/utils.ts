@@ -35,3 +35,5 @@ export const debounce = (callback: any, timeout: any = 400) => {
     }, timeout)
   }
 }
+
+export const formatPrice = (price: number) => `${price.toLocaleString('ru-RU')} руб/час`

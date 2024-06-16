@@ -1,6 +1,7 @@
 import { boatTypeMapping } from 'consts'
 
 import { BoatClauseMapping } from 'components'
+import { formatPrice } from 'utils'
 import type { BoatData } from 'types'
 
 import styles from './index.module.scss'
@@ -19,7 +20,7 @@ export const BoatParameters = (boatData: BoatData) => {
 
   return (
     <div className={styles.root}>
-      <div className={styles.price}>от {price.toLocaleString('ru-RU')} руб/час</div>
+      <div className={styles.price}>{formatPrice(price)}</div>
       <BoatClauseMapping theme="dark" clauseMapping={clauseMapping} />
     </div>
   )
