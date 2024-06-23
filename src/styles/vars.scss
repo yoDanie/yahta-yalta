@@ -73,3 +73,16 @@ $button-glow: $color-bronze 0px 0px 6px;
 @mixin bg-gradientl-2 {
   background: linear-gradient(to bottom, $color-lightblue, $color-darkblue2);
 }
+
+@mixin rope {
+  &::after {
+    content: '';
+    height: 16px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    background: url(../icons/rope.png) center repeat-x;
+  }
+}

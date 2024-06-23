@@ -10,15 +10,8 @@
     inset: 0;
     background-color: hsla(215, 30%, 2%, 0.7);
   }
-  &::after {
-    content: '';
-    height: 18px;
-    width: 100%;
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    background: url(../rope.png) center repeat-x;
-  }
+
+  @include rope;
 }
 
 .anchor {
