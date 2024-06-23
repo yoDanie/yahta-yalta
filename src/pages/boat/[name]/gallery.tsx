@@ -39,7 +39,7 @@ export const GalleryPage = () => {
         <Image src={CloseIcon} alt="закрыть" />
       </Link>
 
-      <div className={styles.swiperWrapper}>
+      <div className={styles.mainContainer}>
         <Swiper
           loop
           navigation
@@ -48,15 +48,13 @@ export const GalleryPage = () => {
           scrollbar={modEnabled}
           keyboard={modEnabled}
           slidesPerView={1}
-          //
-          thumbs={{ swiper: thumbsSwiper }}
+          {...(thumbsSwiper && { thumbs: { swiper: thumbsSwiper } })}
           modules={[Navigation, Controller, Thumbs, Keyboard, FreeMode]}
         >
           {images.map((src, index) => (
             <SwiperSlide key={src.src}>
               <Image
                 priority
-                containerClassname={styles.photo}
                 className={styles.img}
                 key={index}
                 src={src}
@@ -67,20 +65,19 @@ export const GalleryPage = () => {
         </Swiper>
       </div>
 
-      <div className={styles.swiperThumbs}>
+      <div className={styles.thumbsContainer}>
         <Swiper
           spaceBetween={10}
-          slidesPerView={5}
-          //
+          slidesPerView={6}
           modules={[FreeMode, Navigation, Thumbs]}
           onSwiper={setThumbsSwiper}
-          // freeMode
-          // watchSlidesProgress
+          freeMode
+          watchSlidesProgress
           className={styles.swiper}
         >
           {images.map((src, index) => (
             <SwiperSlide key={src.src}>
-              <Image src={src} alt={`Thumbnail ${index}`} />
+              <Image src={src} alt={`Thumbnail ${index}`} containerClassname={styles.thumb} />
             </SwiperSlide>
           ))}
         </Swiper>
