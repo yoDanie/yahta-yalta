@@ -6,8 +6,8 @@
 .btn {
   width: 100%;
   height: 100%;
-  background-image: url(../../../icons/telegram.svg),
-    url(../../../icons/whatsapp.svg), url(../../../icons/viber.svg);
+  background-image: url(../../../../icons/telegram.svg), url(../../../../icons/whatsapp.svg),
+    url(../../../../icons/viber.svg);
   background-size: 25px;
   background-position: center bottom, right top, top left;
   background-repeat: no-repeat;
