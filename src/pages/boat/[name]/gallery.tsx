@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import CloseIcon from 'icons/cross.svg'
 import { useRouter } from 'next/router'
 import { Controller, FreeMode, Keyboard, Navigation, Thumbs } from 'swiper/modules'
@@ -6,13 +7,6 @@ import type { SwiperClass } from 'swiper/react'
 
 import { Image, Link } from 'components'
 import { useBoatData } from 'hooks'
-
-import 'swiper/css'
-import 'swiper/css/free-mode'
-import 'swiper/css/navigation'
-import 'swiper/css/thumbs'
-
-import { useEffect, useState } from 'react'
 
 import styles from './index.module.scss'
 import { useEscapeKey } from './useEscapeKey'
@@ -58,7 +52,7 @@ export const GalleryPage = () => {
                 className={styles.img}
                 key={index}
                 src={src}
-                alt={`Заглавное фото яхты `}
+                alt={`Заглавное фото ${data?.slug}`}
               />
             </SwiperSlide>
           ))}
@@ -75,9 +69,13 @@ export const GalleryPage = () => {
           watchSlidesProgress
           className={styles.swiper}
         >
-          {images.map((src, index) => (
+          {images.map((src) => (
             <SwiperSlide key={src.src}>
-              <Image src={src} alt={`Thumbnail ${index}`} containerClassname={styles.thumb} />
+              <Image
+                src={src}
+                alt={`Фото-миниатюра ${data?.slug}`}
+                containerClassname={styles.thumb}
+              />
             </SwiperSlide>
           ))}
         </Swiper>

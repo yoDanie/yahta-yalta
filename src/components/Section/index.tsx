@@ -4,7 +4,7 @@ import type { CSSProperties, ReactNode } from 'react'
 import styles from './index.module.scss'
 
 type SectionProps = {
-  title: string
+  title: ReactNode
   children: ReactNode
   className?: string
   style?: CSSProperties

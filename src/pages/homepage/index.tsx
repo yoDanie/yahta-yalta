@@ -1,10 +1,11 @@
 import Head from 'next/head'
 
-import { Boats, Layout } from 'components'
+import { Boats, Contacts, Layout, Section } from 'components'
 
 import { About } from './About'
 import { Cards } from './Cards'
 import { Intro } from './Intro'
+import { Reviews } from './Reviews'
 
 export const HomePage = () => (
   <>
@@ -19,6 +20,10 @@ export const HomePage = () => (
       <Intro />
       <Cards />
       <Boats />
+      {/* <Section title="Контакты">
+        <Contacts />
+      </Section> */}
+      <Reviews />
     </Layout>
   </>
 )

@@ -2,13 +2,9 @@ import telegram from 'icons/telegram.svg'
 import viber from 'icons/viber.svg'
 import whatsapp from 'icons/whatsapp.svg'
 
-import { Image, Section } from 'components'
+import { Image } from 'components'
 
 import styles from './index.module.scss'
-
-type ContactsProps = {
-  title: string
-}
 
 const chatsMapping = [
   { href: 'https://telegram.me/RodionYalta', src: telegram, alt: 'телеграм контакт' },
@@ -22,8 +18,8 @@ const chatsMapping = [
 
 export const Contacts = () => {
   return (
-    <>
-      <div className={styles.root}>
+    <div className={styles.root}>
+      <div className={styles.chats}>
         {chatsMapping.map(({ alt, href, src }, index) => (
           <a key={index} href={href} className={styles.icon} target="_blank">
             <Image src={src} alt={alt} />
@@ -37,6 +33,6 @@ export const Contacts = () => {
           +7 (978) 100-01-71
         </a>
       </div>
-    </>
+    </div>
   )
 }
