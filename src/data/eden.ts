@@ -1,6 +1,7 @@
 export const eden: BoatData = {
   slug: 'эден',
   type: 'catamaran',
+  description: '',
   model: 'Lagoon 380',
   price: 12000,
   name: 'eden',

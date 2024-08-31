@@ -1,8 +1,7 @@
-import type { BoatData } from 'types'
-
 export const aurelia: BoatData = {
   slug: 'аурелия',
   type: 'sailing',
+  description: '',
   price: 8000,
   name: 'aurelia',
   capacity: 10,

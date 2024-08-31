@@ -3,10 +3,11 @@ import cn from 'classnames'
 import logo from 'icons/yahta-logo.svg'
 import Image from 'next/image'
 
-import { Link, Messengers, Nav } from 'components'
+import { Link, Messengers } from 'components'
 
 import styles from './index.module.scss'
 import { MessengersBtn } from './MessengersBtn'
+import { NavMenu } from './NavMenu'
 import useHeaderScroll from './useHeaderScroll'
 
 export const Header = () => {
@@ -26,7 +27,7 @@ export const Header = () => {
       )}
     >
       <MessengersBtn />
-      <Nav />
+      <NavMenu />
       <div className={styles.info}>
         <div className={styles.wrapper}>
           <Link href="/" className={styles.title}>

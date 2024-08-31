@@ -1,10 +1,9 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
-import type { BoatName } from 'types'
-
-export const useEscapeKey = (boatName: BoatName) => {
+export const useEscapeKey = () => {
   const router = useRouter()
+  const boatName = router.query.name as string
 
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
@@ -18,5 +17,5 @@ export const useEscapeKey = (boatName: BoatName) => {
     return () => {
       document.removeEventListener('keydown', handleEsc)
     }
-  }, [])
+  }, [boatName])
 }

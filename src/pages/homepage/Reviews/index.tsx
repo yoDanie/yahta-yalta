@@ -9,7 +9,7 @@ import styles from './index.module.scss'
 export const Reviews = () => {
   return (
     <Section title={<>Спасибо Вам &#129505;</>}>
-      <div>
+      <div className={styles.root}>
         <Swiper
           loop
           navigation

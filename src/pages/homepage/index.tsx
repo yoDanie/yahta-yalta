@@ -23,7 +23,7 @@ export const HomePage = () => (
       {/* <Section title="Контакты">
         <Contacts />
       </Section> */}
-      <Reviews />
+      {/* <Reviews /> */}
     </Layout>
   </>
 )

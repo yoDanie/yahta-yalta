@@ -2,6 +2,7 @@ export const raskat: BoatData = {
   name: 'raskat',
   slug: 'Раскат',
   type: 'catamaran',
+  description: '',
   model: 'Wildcat 350',
   price: 11000,
   capacity: 10,

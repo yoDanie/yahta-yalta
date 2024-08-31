@@ -2,6 +2,7 @@ export const josie: BoatData = {
   name: 'josie',
   slug: 'жози',
   type: 'sailing',
+  description: '',
   model: '',
   price: 8000,
   capacity: 10,

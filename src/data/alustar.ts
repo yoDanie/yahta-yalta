@@ -7,5 +7,6 @@ export const alustar: BoatData = {
   name: 'alustar',
   slug: 'алюстар',
   type: 'motor',
+  description: '',
   width: 4,
 }

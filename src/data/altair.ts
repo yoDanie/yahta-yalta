@@ -1,5 +1,3 @@
-import type { BoatData } from 'types'
-
 export const altair: BoatData = {
   cabins: 2,
   capacity: 10,
@@ -7,4 +5,5 @@ export const altair: BoatData = {
   name: 'altair',
   slug: 'альтаир',
   type: 'motor',
+  description: '',
 }

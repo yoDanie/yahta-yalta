@@ -8,5 +8,6 @@ export const anadel: BoatData = {
   sleeps: 8,
   slug: 'анадель',
   type: 'sailing',
+  description: '',
   width: 6.5,
 }

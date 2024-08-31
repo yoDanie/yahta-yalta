@@ -9,5 +9,6 @@ export const maestro: BoatData = {
   sleeps: 4,
   slug: 'Маэстро',
   type: 'motor',
+  description: '',
   width: 3,
 }

@@ -34,7 +34,7 @@ export const BoatPage = () => {
             className={cn(styles.mainImage, styles.hoverable)}
             href={`/boat/${name}/gallery`}
           >
-            <Image src={mainImage} alt={`Заглавное фото яхты ${slug}`} />
+            <Image src={mainImage.default} alt={`Заглавное фото яхты ${slug}`} />
           </Link>
           <div className={styles.thumbs}>
             {thumbs.map((src, index) => (
@@ -44,7 +44,7 @@ export const BoatPage = () => {
                 key={index}
                 href={`/boat/${name}/gallery`}
               >
-                <Image src={src} alt={`Фото яхты ${slug}`} />
+                <Image src={src.default} alt={`Фото яхты ${slug}`} />
               </Link>
             ))}
           </div>

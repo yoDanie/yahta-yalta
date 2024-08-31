@@ -1,6 +1,0 @@
-export * from './alexandra'
-export * from './altair'
-export * from './josie'
-export * from './alexandra'
-export * from './maestro'
-export * from './natatores'

@@ -13,6 +13,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "types": [
+      "node",
+      "webpack-env" // here
+    ],
     "incremental": true,
     "paths": {
       "*": ["./src/*"]

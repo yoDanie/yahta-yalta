@@ -2,6 +2,7 @@ export const nikole: BoatData = {
   name: 'nikole',
   slug: 'Николь',
   type: 'sailing',
+  description: '',
   model: 'Бавария 44',
   price: 8000,
   capacity: 10,

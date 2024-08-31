@@ -2,6 +2,7 @@ export const label: BoatData = {
   name: 'label',
   slug: 'Лабэль',
   type: 'sailing',
+  description: '',
   price: 8500,
   capacity: 10,
   length: 15,

@@ -1,6 +1,5 @@
 import { boatIconMapping, boatTypeMapping } from 'consts'
 import Link from 'next/link'
-import { BoatName } from 'types'
 
 import { BoatClauseMapping, Image } from 'components'
 import { useBoatData } from 'hooks'
@@ -9,7 +8,7 @@ import { capitalize, formatPrice } from 'utils'
 import styles from './index.module.scss'
 
 type BoatProps = {
-  boatName: BoatName
+  boatName: string
 }
 
 export const Boat = ({ boatName }: BoatProps) => {

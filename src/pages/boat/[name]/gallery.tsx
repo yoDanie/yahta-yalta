@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import CloseIcon from 'icons/cross.svg'
 import { useRouter } from 'next/router'
 import { Controller, FreeMode, Keyboard, Navigation, Thumbs } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import type { SwiperClass } from 'swiper/react'
 
 import { Image, Link } from 'components'
 import { useBoatData } from 'hooks'
@@ -21,7 +20,7 @@ export const GalleryPage = () => {
   const router = useRouter()
   const { initialSlide = 0 } = router?.query
 
-  useEscapeKey(data?.name)
+  useEscapeKey()
 
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
 
@@ -46,12 +45,12 @@ export const GalleryPage = () => {
           modules={[Navigation, Controller, Thumbs, Keyboard, FreeMode]}
         >
           {images.map((src, index) => (
-            <SwiperSlide key={src.src}>
+            <SwiperSlide key={src.default}>
               <Image
                 priority
                 className={styles.img}
                 key={index}
-                src={src}
+                src={src.default}
                 alt={`Заглавное фото ${data?.slug}`}
               />
             </SwiperSlide>
@@ -70,9 +69,9 @@ export const GalleryPage = () => {
           className={styles.swiper}
         >
           {images.map((src) => (
-            <SwiperSlide key={src.src}>
+            <SwiperSlide key={src.default}>
               <Image
-                src={src}
+                src={src.default}
                 alt={`Фото-миниатюра ${data?.slug}`}
                 containerClassname={styles.thumb}
               />

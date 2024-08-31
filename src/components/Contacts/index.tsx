@@ -9,7 +9,8 @@ import styles from './index.module.scss'
 const chatsMapping = [
   { href: 'https://telegram.me/RodionYalta', src: telegram, alt: 'телеграм контакт' },
   {
-    href: 'https://api.whatsapp.com/send/?phone=79781000171',
+    href: 'https://wa.me/79781000171?text=привет',
+    // href: 'https://api.whatsapp.com/send/?phone=79781000171',
     src: whatsapp,
     alt: 'ватсап контакт',
   },
