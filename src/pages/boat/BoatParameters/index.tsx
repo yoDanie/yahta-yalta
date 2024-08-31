@@ -20,7 +20,7 @@ export const BoatParameters = (boatData: BoatData) => {
   return (
     <div className={styles.root}>
       <div className={styles.price}>{formatPrice(price)}</div>
-      <BoatClauseMapping theme="dark" clauseMapping={clauseMapping} />
+      <BoatClauseMapping className={styles.clauses} theme="dark" clauseMapping={clauseMapping} />
     </div>
   )
 }

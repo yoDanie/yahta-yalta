@@ -1,16 +1,15 @@
 .root {
-  background: linear-gradient(to bottom, $color-darkblue, $color-darkblue3);
+  background: linear-gradient(to bottom right, $color-darkblue, $color-darkblue3);
 }
 
 .boats {
   display: grid;
   grid-gap: 40px;
   grid-template-columns: repeat(4, 1fr);
-  // grid-auto-rows: 1f;
 }
 
-// @media (min-width: 1280px) {
-//   .boats {
-//     grid-template-columns: repeat(3, 1fr);
-//   }
-// }
+@media (max-width: 1450px) {
+  .boats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
