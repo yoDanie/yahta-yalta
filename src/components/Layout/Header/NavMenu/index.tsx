@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import cn from 'classnames'
 
 import { Link } from 'components'
@@ -15,15 +16,26 @@ const links = [
 ]
 
 export const NavMenu = ({ className }: NavProps) => {
+  const [isOpened, setOpened] = useState(false)
+
+  const toggleMenu = () => {
+    setOpened((state) => !state)
+  }
+
   return (
     <>
-      <Burger />
+      <Burger isOpened={isOpened} toggleMenu={toggleMenu} />
 
-      <nav className={cn(styles.root, className)}>
+      <nav className={cn(styles.root, isOpened && styles.opened, className)}>
         {links.map(({ href, text }, index) => (
-          <Link key={index} href={href}>
+          <Link key={index} href={href} className={styles.menuItem}>
             {text}
           </Link>
+          // <div className={styles.menuItem}>
+          //   <Link key={index} href={href} className={styles.link}>
+          //     {text}
+          //   </Link>
+          // </div>
         ))}
       </nav>
     </>

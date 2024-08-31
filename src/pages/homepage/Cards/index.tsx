@@ -41,7 +41,7 @@ export const Cards = () => (
         <span className={styles.text}>
           Забронируйте морскую прогулку вдоль берега Ялты и добавьте яркие фото в свою коллекцию!
         </span>
-        <Button theme="light">Бронировать яхту</Button>
+        <Button theme="light">Забронировать яхту</Button>
       </div>
       <Image className={styles.polaroid} src={polaroidImage} alt="Ваше polaroid-фото" />
     </div>
