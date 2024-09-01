@@ -1,5 +1,4 @@
 import cn from 'classnames'
-import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -7,9 +6,9 @@ import { Boats, Contacts, Image, Layout } from 'components'
 import { useBoatData } from 'hooks'
 import { capitalize } from 'utils'
 
-import { BoatMetaHead } from './BoatMetaHead'
-import { BoatParameters } from './BoatParameters'
 import styles from './index.module.scss'
+import { BoatMetaHead } from '../../pageComponents/boat/BoatMetaHead'
+import { BoatParameters } from '../../pageComponents/boat/BoatParameters'
 
 export const BoatPage = () => {
   const { data, images, mainImage } = useBoatData()

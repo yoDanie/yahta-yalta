@@ -1,12 +1,10 @@
 import Head from 'next/head'
 
-import { Boats, Contacts, Layout, Section } from 'components'
+import { Boats, Layout } from 'components'
 
-import { About } from './About'
-import { Cards } from './Cards'
-import { Intro } from './Intro'
-import { Reviews } from './Reviews'
-import { DefaultMetaHead } from '../DefaultMetaHead'
+import { DefaultMetaHead } from '../../pageComponents/DefaultMetaHead'
+import { Cards } from '../../pageComponents/home/Cards'
+import { Intro } from '../../pageComponents/home/Intro'
 
 export const HomePage = () => (
   <>

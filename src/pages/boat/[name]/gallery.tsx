@@ -8,7 +8,7 @@ import { Image, Link } from 'components'
 import { useBoatData } from 'hooks'
 
 import styles from './index.module.scss'
-import { useEscapeKey } from './useEscapeKey'
+import { useEscapeKey } from '../../../pageComponents/boat/useEscapeKey'
 
 const modEnabled = {
   enabled: true,
