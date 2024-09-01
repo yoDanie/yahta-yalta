@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -6,6 +7,7 @@ import { Boats, Contacts, Image, Layout } from 'components'
 import { useBoatData } from 'hooks'
 import { capitalize } from 'utils'
 
+import { BoatMetaHead } from './BoatMetaHead'
 import { BoatParameters } from './BoatParameters'
 import styles from './index.module.scss'
 
@@ -26,46 +28,50 @@ export const BoatPage = () => {
   }
 
   return (
-    <Layout>
-      <div className={styles.showcase}>
-        <div className={styles.photos}>
-          <Link
-            onClick={(e) => handleClick(e)}
-            className={cn(styles.mainImage, styles.hoverable)}
-            href={`/boat/${name}/gallery`}
-          >
-            <Image src={mainImage.default} alt={`Заглавное фото яхты ${slug}`} />
-          </Link>
-          <div className={styles.thumbs}>
-            {thumbs.map((src, index) => (
-              <Link
-                onClick={(e) => handleClick(e, index + 1)}
-                className={cn(styles.thumb, styles.hoverable)}
-                key={index}
-                href={`/boat/${name}/gallery`}
-              >
-                <Image src={src.default} alt={`Фото яхты ${slug}`} />
-              </Link>
-            ))}
+    <>
+      <BoatMetaHead />
+
+      <Layout>
+        <div className={styles.showcase}>
+          <div className={styles.photos}>
+            <Link
+              onClick={(e) => handleClick(e)}
+              className={cn(styles.mainImage, styles.hoverable)}
+              href={`/boat/${name}/gallery`}
+            >
+              <Image src={mainImage.default} alt={`Заглавное фото яхты ${slug}`} />
+            </Link>
+            <div className={styles.thumbs}>
+              {thumbs.map((src, index) => (
+                <Link
+                  onClick={(e) => handleClick(e, index + 1)}
+                  className={cn(styles.thumb, styles.hoverable)}
+                  key={index}
+                  href={`/boat/${name}/gallery`}
+                >
+                  <Image src={src.default} alt={`Фото яхты ${slug}`} />
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className={styles.about}>
+            <h1 className={styles.title}>{capitalize(slug)}</h1>
+            <BoatParameters {...data} />
           </div>
         </div>
-        <div className={styles.about}>
-          <h1 className={styles.title}>{capitalize(slug)}</h1>
-          <BoatParameters {...data} />
+        <div className={styles.details}>
+          <div className={styles.order}>
+            <div className={styles.subtitle}>Забронировать</div>
+            <Contacts />
+          </div>
+          <div className={styles.description}>
+            <div className={styles.subtitle}>Описание</div>
+            <div className={styles.descriptionText}>{description}</div>
+          </div>
         </div>
-      </div>
-      <div className={styles.details}>
-        <div className={styles.order}>
-          <div className={styles.subtitle}>Забронировать</div>
-          <Contacts />
-        </div>
-        <div className={styles.description}>
-          <div className={styles.subtitle}>Описание</div>
-          <div className={styles.descriptionText}>{description}</div>
-        </div>
-      </div>
-      <Boats title="Другие яхты" currentBoat={name} />
-    </Layout>
+        <Boats title="Другие яхты" currentBoat={name} />
+      </Layout>
+    </>
   )
 }
 

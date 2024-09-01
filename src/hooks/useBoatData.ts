@@ -1,7 +1,7 @@
 import { orderedBoatsData } from 'data'
 import { useRouter } from 'next/router'
 
-const imagesContext = require.context('/src/images', true)
+const imagesContext = require.context('/public/images/boats', true)
 
 type GroupedImages = {
   [folder: string]: {

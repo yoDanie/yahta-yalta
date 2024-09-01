@@ -31,11 +31,6 @@ export const NavMenu = ({ className }: NavProps) => {
           <Link key={index} href={href} className={styles.menuItem}>
             {text}
           </Link>
-          // <div className={styles.menuItem}>
-          //   <Link key={index} href={href} className={styles.link}>
-          //     {text}
-          //   </Link>
-          // </div>
         ))}
       </nav>
     </>
