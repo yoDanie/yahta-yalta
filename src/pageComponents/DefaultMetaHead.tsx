@@ -10,13 +10,14 @@ export const DefaultMetaHead = () => (
       name="keywords"
       content="прогулки на яхте, прогулки на катере, морская прогулка ялта, морские прогулки, ялта, яхта, катер, аренда, морское путешествие, экскурсия, рыбалка, прогулка на яхте, снять яхту, аренда яхты с капитаном, аренда, заказать яхту, морская экскурсия ласточкино гнездо, ласточка, гнездо, гнездышко, гурзуф яхта, медведь гора яхта"
     />
-    <meta property="og:url" content="https://yahta-yalta.ru/" />
+    <meta property="og:url" content={process.env.NEXT_PUBLIC_BASE_URL} />
+    <meta property="og:url" content={window.location.origin} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Яхта-Ялта - Морские прогулки" />
     <meta
       property="og:description"
       content="Морская прогулка в Ялте. Морская прогулка к Ласточкино гнездо. Аренда яхты в Ялте. Аренда катера Ялта. Прогулка на яхте"
     />
-    <meta property="og:image" content="/images/gallery/gallery-16.jpg" />
+    <meta property="og:image" content="/images/gallery/gallery-17.jpg" />
   </Head>
 )

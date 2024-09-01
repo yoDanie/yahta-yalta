@@ -1,5 +1,6 @@
 import { boatTypeMapping, dashChar } from 'consts'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 import { useBoatData } from 'hooks'
 import { capitalize } from 'utils'
@@ -15,6 +16,10 @@ export const BoatMetaHead = () => {
     data: { name, slug, type },
     mainImage,
   } = useBoatData()
+
+  const router = useRouter()
+
+  console.log(router.asPath)
 
   const textAddition = type !== 'catamaran' && 'яхта'
 
@@ -47,7 +52,8 @@ export const BoatMetaHead = () => {
         content={`${titleMainPart}. Аренда яхты, морская прогулка в Ялте`}
       />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={`/images/boats/${name}/${mainImage.filePath}`} />
+      <meta property="og:image" content={`/images/gallery/gallery-4.jpg`} />
+      {/* <meta property="og:image" content={`/images/boats/${name}/${mainImage.filePath}`} /> */}
     </Head>
   )
 }
