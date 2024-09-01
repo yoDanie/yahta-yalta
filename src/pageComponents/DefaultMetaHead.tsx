@@ -18,6 +18,6 @@ export const DefaultMetaHead = () => (
       property="og:description"
       content="Морская прогулка в Ялте. Морская прогулка к Ласточкино гнездо. Аренда яхты в Ялте. Аренда катера Ялта. Прогулка на яхте"
     />
-    <meta property="og:image" content="/images/gallery/gallery-6.jpg" />
+    <meta property="og:image" content="/images/gallery/gallery-16.jpg" />
   </Head>
 )

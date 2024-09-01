@@ -16,13 +16,7 @@ const Card = ({ src, alt, caption }: any) => (
 
 export const Cards = () => (
   <Section className={styles.root} title="Наполните жизнь приятными моментами...">
-    <Image
-      quality={50}
-      className={styles.bgImage}
-      placeholder="blur"
-      src={bgImage}
-      alt="фоновая картинка"
-    />
+    <Image quality={50} className={styles.bgImage} src={bgImage} alt="фоновая картинка" />
     <div className={styles.cards}>
       <Card src={cardImage1} alt="Скала парус - Крым, Ялта" caption="Любуемся скалой 'Парус'" />
       <Card
@@ -43,7 +37,7 @@ export const Cards = () => (
         </span>
         <Button theme="light">Забронировать яхту</Button>
       </div>
-      <Image className={styles.polaroid} src={polaroidImage} alt="Ваше polaroid-фото" />
+      <Image className={styles.polaroid} src={polaroidImage} alt="polaroid" />
     </div>
   </Section>
 )

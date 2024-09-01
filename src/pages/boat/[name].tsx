@@ -61,7 +61,7 @@ export const BoatPage = () => {
         <div className={styles.details}>
           <div className={styles.order}>
             <div className={styles.subtitle}>Забронировать</div>
-            <Contacts />
+            <Contacts boatData={data} />
           </div>
           <div className={styles.description}>
             <div className={styles.subtitle}>Описание</div>

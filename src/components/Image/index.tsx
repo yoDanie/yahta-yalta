@@ -11,7 +11,12 @@ type ImageProps = {
 
 export const Image = ({ className, containerClassname, ...otherProps }: ImageProps) => {
   const image = (
-    <NextImage placeholder="blur" className={cn(styles.root, className)} {...otherProps} />
+    <NextImage
+      placeholder="blur"
+      blurDataURL={typeof otherProps.src === 'string' ? otherProps.src : undefined}
+      className={cn(styles.root, className)}
+      {...otherProps}
+    />
   )
 
   return containerClassname ? <div className={containerClassname}>{image}</div> : image

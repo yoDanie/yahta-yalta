@@ -18,7 +18,7 @@ export const Footer = () => {
       </div>
 
       <div className={styles.logo} onClick={() => window.scrollTo(0, 0)}>
-        <Image src={logo} alt="лого яхта-ялта" />
+        <Image placeholder="empty" src={logo} alt="лого яхта-ялта" />
       </div>
     </footer>
   )

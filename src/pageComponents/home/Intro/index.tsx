@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import cn from 'classnames'
 import anchorImage from 'icons/sea-anchor.png'
 
-import { Button, Divider, Image } from 'components'
+import { Image } from 'components'
 import { useIntersectionObserver } from 'hooks'
 
 import styles from './index.module.scss'
@@ -16,12 +16,7 @@ export const Intro = () => {
   return (
     <>
       <div className={styles.root}>
-        <Image
-          priority
-          placeholder="blur"
-          src={bgImage}
-          alt="Интро картинка - аренда яхт и катеров в Ялте"
-        />
+        <Image priority src={bgImage} alt="Интро картинка - аренда яхт и катеров в Ялте" />
         <Image
           priority
           className={cn(styles.anchor, isBottomElementVisible && styles.animated)}

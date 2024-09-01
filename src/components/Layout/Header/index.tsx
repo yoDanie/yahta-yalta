@@ -58,7 +58,7 @@ export const Header = () => {
           <div className={styles.subtitle}>Аренда яхт и катеров в Ялте</div>
         </div>
         <Link href="/">
-          <Image className={styles.logo} src={logo} alt="лого яхта-ялта" />
+          <Image placeholder="empty" className={styles.logo} src={logo} alt="лого яхта-ялта" />
         </Link>
       </div>
     </header>
