@@ -45,7 +45,7 @@ export const BoatMetaHead = () => {
         content={`${titleMainPart}. Аренда яхты, морская прогулка в Ялте`}
       />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={`/public/images/boats/${name}/${mainImage.filePath}`} />
+      <meta property="og:image" content={`/images/boats/${name}/${mainImage.filePath}`} />
     </Head>
   )
 }
