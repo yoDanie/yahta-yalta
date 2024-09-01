@@ -26,6 +26,8 @@ export const BoatMetaHead = () => {
     type === 'sailing' ? 'Романтическая прогулка под парусом' : 'Рыбалка на яхте'
   }`
 
+  const baseURL = process.env.NEXT_PUBLIC_BASE_URL || 'https://yahta-yalta.vercel.app'
+
   return (
     <Head>
       <title>
@@ -38,7 +40,7 @@ export const BoatMetaHead = () => {
       ${slug} ялта, яхта ${name}, яхта ${name} ялта, ${keywordsMapping[type]}, рыбалка на яхте, морская прогулка, аренды яхты, заказать яхту, снять яхту, прогулки на яхте, прогулки на катере, морская прогулка ялта, морские прогулки, ялта, яхта, катер, аренда, морское путешествие, экскурсия, рыбалка, прогулка на яхте, снять яхту, аренда яхты с капитаном, аренда, заказать яхту, морская экскурсия ласточкино гнездо, ласточка, гнездо, гнездышко, гурзуф яхта, медведь гора яхта`}
       />
 
-      <meta property="og:url" content={window.location.href} />
+      <meta property="og:url" content={`${baseURL}/boat/${name}`} />
       <meta property="og:type" content="website" />
       <meta
         property="og:title"
