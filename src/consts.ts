@@ -17,3 +17,5 @@ export const boatIconMapping = {
 }
 
 export const dashChar = '—'
+
+export const baseURL = 'https://yahta-yalta.vercel.app'

@@ -3,18 +3,25 @@ import cn from 'classnames'
 import logo from 'icons/yahta-logo.svg'
 import Image from 'next/image'
 
-import { Link, Messengers } from 'components'
+import { Link } from 'components'
 
+import { Burger } from './Burger'
 import styles from './index.module.scss'
 import { MessengersBtn } from './MessengersBtn'
 import { NavMenu } from './NavMenu'
 import useHeaderScroll from './useHeaderScroll'
 
 export const Header = () => {
-  // const burgerHandler = () => {
-  //   setMessengersActive(false)
-  //   setBurgerActive(prev => !prev)
-  // }
+  const [isBurgerOpened, setBurgerOpened] = useState(false)
+  const [isMessengersOpened, setMessengersOpened] = useState(false)
+
+  const toggleBurgerMenu = () => {
+    setBurgerOpened((state) => !state)
+  }
+
+  const toggleMessengers = () => {
+    setMessengersOpened((state) => !state)
+  }
 
   const headerState = useHeaderScroll()
 
@@ -23,12 +30,25 @@ export const Header = () => {
       className={cn(
         styles.root,
         headerState === 'hide' && styles.hide,
-        headerState === 'show' && styles.show,
+        (headerState === 'show' || isBurgerOpened || isMessengersOpened) && styles.show,
       )}
     >
-      <MessengersBtn />
+      <MessengersBtn
+        isOpened={isMessengersOpened}
+        toggleOpened={toggleMessengers}
+        onClose={() => setMessengersOpened(false)}
+      />
 
-      <NavMenu />
+      <NavMenu
+        isOpened={isBurgerOpened}
+        burger={
+          <Burger
+            isOpened={isBurgerOpened}
+            toggleOpened={toggleBurgerMenu}
+            onClose={() => setBurgerOpened(false)}
+          />
+        }
+      />
 
       <div className={styles.info}>
         <div className={styles.wrapper}>

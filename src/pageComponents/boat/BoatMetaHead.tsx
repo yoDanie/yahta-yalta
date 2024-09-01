@@ -1,6 +1,5 @@
-import { boatTypeMapping, dashChar } from 'consts'
+import { baseURL, boatTypeMapping, dashChar } from 'consts'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 
 import { useBoatData } from 'hooks'
 import { capitalize } from 'utils'
@@ -17,10 +16,6 @@ export const BoatMetaHead = () => {
     mainImage,
   } = useBoatData()
 
-  const router = useRouter()
-
-  console.log(router.asPath)
-
   const textAddition = type !== 'catamaran' && 'яхта'
 
   const titleMainPart = `${capitalize(slug)} ${dashChar} ${boatTypeMapping[type]} ${textAddition}`
@@ -30,8 +25,6 @@ export const BoatMetaHead = () => {
   )}". Забронировать +7 978-1000-171 | Скидки на аренду светового дня и суток | ${
     type === 'sailing' ? 'Романтическая прогулка под парусом' : 'Рыбалка на яхте'
   }`
-
-  const baseURL = process.env.NEXT_PUBLIC_BASE_URL || 'https://yahta-yalta.vercel.app'
 
   return (
     <Head>
@@ -52,8 +45,7 @@ export const BoatMetaHead = () => {
         content={`${titleMainPart}. Аренда яхты, морская прогулка в Ялте`}
       />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={`/images/gallery/gallery-4.jpg`} />
-      {/* <meta property="og:image" content={`/images/boats/${name}/${mainImage.filePath}`} /> */}
+      <meta property="og:image" content={`/images/boats/${name}/${mainImage.filePath}`} />
     </Head>
   )
 }

@@ -10,7 +10,9 @@ type ImageProps = {
 } & NextImageProps
 
 export const Image = ({ className, containerClassname, ...otherProps }: ImageProps) => {
-  const image = <NextImage className={cn(styles.root, className)} {...otherProps} />
+  const image = (
+    <NextImage placeholder="blur" className={cn(styles.root, className)} {...otherProps} />
+  )
 
   return containerClassname ? <div className={containerClassname}>{image}</div> : image
 }

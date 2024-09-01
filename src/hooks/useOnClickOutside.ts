@@ -1,17 +1,16 @@
 import { useEffect } from 'react'
 
 type useOnClickOutsideParams = {
-  ref: any
-  callback: any
+  ref: HTMLElement | null
+  onClose: () => void
 }
 
-export const useOnClickOutside = ({ ref, callback }: useOnClickOutsideParams) => {
+export const useOnClickOutside = ({ ref, onClose }: useOnClickOutsideParams) => {
   useEffect(() => {
     const listener = (event: any) => {
-      if (!ref.current || ref.current.contains(event.target)) {
-        return
+      if (!ref?.contains(event.target)) {
+        onClose()
       }
-      callback(event)
     }
 
     document.addEventListener('mousedown', listener)
@@ -21,5 +20,5 @@ export const useOnClickOutside = ({ ref, callback }: useOnClickOutsideParams) =>
       document.removeEventListener('mousedown', listener)
       document.removeEventListener('touchstart', listener)
     }
-  }, [ref, callback])
+  }, [ref, onClose])
 }

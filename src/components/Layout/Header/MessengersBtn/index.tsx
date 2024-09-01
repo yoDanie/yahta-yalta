@@ -1,33 +1,28 @@
 import { useState } from 'react'
 import cn from 'classnames'
 
-import styles from './index.module.css'
+import { Contacts } from 'components'
+import { useOnClickOutside } from 'hooks'
+
+import styles from './index.module.scss'
 
 type MessengersBtnProps = {
-  // isActive: boolean
+  isOpened: boolean
+  toggleOpened: () => void
+  onClose: () => void
 }
 
-export const MessengersBtn = ({}: MessengersBtnProps) => {
-  const [messengersActive, setMessengersActive] = useState(false)
-  const [burgerActive, setBurgerActive] = useState(false)
+export const MessengersBtn = ({ isOpened, toggleOpened, onClose }: MessengersBtnProps) => {
+  const [ref, setRef] = useState<HTMLElement | null>(null)
 
-  // const headerState = useHeaderScroll()
-
-  const showMessengers = () => {
-    setBurgerActive(false)
-    setMessengersActive((prev) => !prev)
-  }
+  useOnClickOutside({ ref, onClose })
 
   return (
-    <div className={styles.root}>
-      <button onClick={showMessengers} className={styles.btn} type="button" />
-      {/* <div
-        className={cn(
-          styles.headerMessengers,
-          messengersActive && styles.messengersActive
-        )}
-      >
-      </div> */}
+    <div className={styles.root} ref={setRef}>
+      <button onClick={toggleOpened} className={styles.btn} type="button" />
+      <div className={cn(styles.messengers, isOpened && styles.active)}>
+        <Contacts />
+      </div>
     </div>
   )
 }
