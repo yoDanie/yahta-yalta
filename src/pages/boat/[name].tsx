@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import { Metadata } from 'next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { DefaultMetaHead } from 'pageComponents/DefaultMetaHead'
@@ -10,6 +11,11 @@ import { capitalize } from 'utils'
 import styles from './index.module.scss'
 import { BoatMetaHead } from '../../pageComponents/boat/BoatMetaHead'
 import { BoatParameters } from '../../pageComponents/boat/BoatParameters'
+
+export const metadata: Metadata = {
+  title: 'Супер тайтл',
+  description: 'дескрипа',
+}
 
 export const BoatPage = () => {
   const { data, images, mainImage } = useBoatData()
@@ -29,7 +35,7 @@ export const BoatPage = () => {
 
   return (
     <>
-      <DefaultMetaHead />
+      {/* <DefaultMetaHead /> */}
 
       {/* <BoatMetaHead /> */}
 
