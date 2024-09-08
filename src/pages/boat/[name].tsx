@@ -12,11 +12,6 @@ import styles from './index.module.scss'
 import { BoatMetaHead } from '../../pageComponents/boat/BoatMetaHead'
 import { BoatParameters } from '../../pageComponents/boat/BoatParameters'
 
-export const metadata: Metadata = {
-  title: 'Супер тайтл',
-  description: 'дескрипа',
-}
-
 export const BoatPage = () => {
   const { data, images, mainImage } = useBoatData()
   const router = useRouter()
@@ -37,7 +32,7 @@ export const BoatPage = () => {
     <>
       {/* <DefaultMetaHead /> */}
 
-      {/* <BoatMetaHead /> */}
+      <BoatMetaHead />
 
       <Layout>
         <div className={styles.showcase}>
