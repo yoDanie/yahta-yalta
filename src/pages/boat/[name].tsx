@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { DefaultMetaHead } from 'pageComponents/DefaultMetaHead'
 
 import { Boats, Contacts, Image, Layout } from 'components'
 import { useBoatData } from 'hooks'
@@ -28,7 +29,9 @@ export const BoatPage = () => {
 
   return (
     <>
-      <BoatMetaHead />
+      <DefaultMetaHead />
+
+      {/* <BoatMetaHead /> */}
 
       <Layout>
         <div className={styles.showcase}>
