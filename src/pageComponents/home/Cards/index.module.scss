@@ -1,6 +1,6 @@
 .root {
   background: linear-gradient(to bottom, $color-darkblue, $color-darkblue3);
-
+  width: 100%;
   &::before {
     content: '';
     position: absolute;
@@ -28,7 +28,6 @@
 
 .card {
   width: 25%;
-  height: auto;
   display: flex;
   flex-direction: column;
 
@@ -64,7 +63,7 @@
 
   text-align: center;
   font-family: $font-nice;
-  font-size: 20px;
+  font-size: 35px;
   color: black;
 }
 
