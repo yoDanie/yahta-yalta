@@ -1,9 +1,10 @@
 .root {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: auto;
-  padding: 10px;
+  padding: 20px;
   gap: 30px;
   background-color: $color-darkblue4;
 }
@@ -26,5 +27,15 @@
   @include link;
   &:visited {
     color: $color-bronze;
+  }
+}
+
+@media (max-width: 770px) {
+  .root {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .logo {
+    align-self: flex-end;
   }
 }

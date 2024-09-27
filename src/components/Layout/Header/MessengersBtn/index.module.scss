@@ -37,3 +37,9 @@
 .active {
   transform: translate(-30px, 60px);
 }
+
+@media (max-width: 575px) {
+  .messengers {
+    padding: 20px;
+  }
+}

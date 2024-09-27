@@ -19,8 +19,8 @@
   height: 260px;
   object-fit: contain;
   position: absolute;
-  bottom: -4%;
-  right: 50px;
+  bottom: -1%;
+  right: 2%;
   z-index: 1000;
 
   transition: all 1s ease-in-out;
@@ -34,12 +34,13 @@
 .content {
   width: 100%;
   height: 100%;
+  padding: 100px 0;
+
   position: absolute;
   top: 0;
   left: 0;
   z-index: 10;
 
-  padding: 80px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,7 +61,7 @@
 .title {
   display: inline-block;
   margin-bottom: 44px;
-  animation: fade 4s;
+  animation: fade 5s;
   position: relative;
   font-weight: 700;
   font-size: 24px;
@@ -80,14 +81,14 @@
 }
 
 .slogan {
-  animation: fade 2s;
+  animation: fade 3s;
   font-weight: 500;
   font-family: $font-nice;
   font-size: 60px;
 }
 
 .subtitle {
-  animation: fade 4s;
+  animation: fade 8s;
   font-size: 24px;
   line-height: 1.4;
   font-weight: 300;
@@ -104,5 +105,54 @@
 
   100% {
     opacity: 1;
+  }
+}
+
+@media (max-width: 1480px) {
+  .anchor {
+    height: 220px;
+  }
+}
+@media (max-width: 990px) {
+  .anchor {
+    height: 160px;
+    right: 1%;
+  }
+  .contentWrapper {
+    width: 80%;
+  }
+  .subtitle {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 770px) {
+  .anchor {
+    height: 120px;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .contentWrapper {
+    width: 90%;
+  }
+  .subtitle {
+    font-size: 18px;
+  }
+  .slogan {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 575px) {
+  .title {
+    font-size: 18px;
+  }
+  .slogan {
+    font-size: 35px;
+  }
+  .subtitle {
+    font-size: 16px;
+    line-height: 1.6;
   }
 }

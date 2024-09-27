@@ -30,7 +30,13 @@ export const Boat = ({ boatName }: BoatProps) => {
   return (
     <Link href={`/boat/${name}`} className={styles.root}>
       <div className={styles.name}>{capitalize(slug)}</div>
-      <Image loading="lazy" className={styles.photo} src={mainImage.default} alt="sdf" />
+      <Image
+        containerClassname={styles.cont}
+        loading="lazy"
+        className={styles.photo}
+        src={mainImage.default}
+        alt="sdf"
+      />
 
       <BoatClauseMapping clauseMapping={clauseMapping} />
     </Link>
