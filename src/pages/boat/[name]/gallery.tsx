@@ -29,7 +29,7 @@ export const GalleryPage = () => {
   return (
     <div className={styles.root}>
       <Link href={`/boat/${data?.name}`} className={styles.close}>
-        <Image src={CloseIcon} alt="закрыть" />
+        <Image placeholder="empty" src={CloseIcon} alt="закрыть" />
       </Link>
 
       <div className={styles.mainContainer}>
