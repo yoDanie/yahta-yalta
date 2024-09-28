@@ -44,3 +44,9 @@
     padding: 40px 20px 60px;
   }
 }
+
+@media (max-width: 770px) {
+  .root {
+    gap: 30px;
+  }
+}

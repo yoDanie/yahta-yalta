@@ -9,7 +9,7 @@ import polaroidImage from './polaroid.png'
 
 const Card = ({ src, alt, caption }: any) => (
   <div className={styles.card}>
-    <Image src={src} className={styles.photo} alt={alt} />
+    <Image className={styles.photo} src={src} alt={alt} />
     <div className={styles.caption}>{caption}</div>
   </div>
 )
@@ -18,26 +18,26 @@ export const Cards = () => (
   <Section className={styles.root} title="Наполните жизнь приятными моментами...">
     <Image quality={50} className={styles.bgImage} src={bgImage} alt="фоновая картинка" />
     <div className={styles.cards}>
-      <Card src={cardImage1} alt="Скала парус - Крым, Ялта" caption="Любуемся скалой 'Парус'" />
+      <Card src={cardImage1} alt="Скала парус - Крым, Ялта" caption={`Любуемся скалой „Парус”`} />
       <Card
         src={cardImage2}
         alt="Замок Ласточкино Гнездо - Крым, Ялта"
-        caption="Замок 'Ласточкино Гнездо'"
+        caption={`Замок „Ласточкино гнездо”`}
       />
       <Card
         src={cardImage3}
         alt="Гриль на яхте, готовка рыбы на яхте"
-        caption="Готовим свежевыловленную рыбу на гриле &#128523;"
+        caption="Словили рыбку и на гриль!"
       />
     </div>
     <div className={styles.callToAction}>
+      <Image className={styles.polaroid} src={polaroidImage} alt="polaroid" />
       <div className={styles.wrapper}>
         <span className={styles.text}>
           Забронируйте морскую прогулку вдоль берега Ялты и добавьте яркие фото в свою коллекцию!
         </span>
         <Button theme="light">Забронировать яхту</Button>
       </div>
-      <Image className={styles.polaroid} src={polaroidImage} alt="polaroid" />
     </div>
   </Section>
 )
