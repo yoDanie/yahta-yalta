@@ -9,7 +9,7 @@ export const DefaultMetaHead = ({ title }: DefaultMetaHeadProps) => {
 
   return (
     <Head>
-      <meta property="og:url" content={window.location.href} />
+      {/* <meta property="og:url" content={window.location.href} /> */}
       <meta property="og:type" content="website" />
 
       <title>{targetTitle}</title>
