@@ -3,11 +3,13 @@
   flex-direction: column;
   gap: 50px;
   padding: 40px 20px;
+  width: 100%;
+  max-width: 600px;
 
   font-size: 20px;
   border-radius: 20px;
-  border: 1px solid white;
   box-shadow: 0px 0px 5px 3px $color-blue;
+  @include bg-gradient2-3;
 }
 
 .price {
@@ -21,3 +23,21 @@
   gap: 40px;
   font-size: 20px;
 }
+
+// @media (max-width: 1200px) {
+//   .clauses {
+//     font-size: 18px;
+//   }
+//   .price {
+//     font-size: 27px;
+//   }
+// }
+
+// @media (max-width: 990px) {
+//   .clauses {
+//     font-size: 14px;
+//   }
+//   .price {
+//     font-size: 25px;
+//   }
+// }

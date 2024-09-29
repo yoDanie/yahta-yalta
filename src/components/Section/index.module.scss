@@ -1,13 +1,10 @@
 .root {
-  position: relative;
+  @include rope;
   display: flex;
   flex-direction: column;
   padding: 60px 30px;
   gap: 80px;
-
   color: $color-darkblue4;
-
-  @include rope;
 }
 
 .blueSection {
@@ -24,7 +21,7 @@
 
   font-family: $font-nice;
   font-weight: 500;
-  font-size: 40px;
+  font-size: 50px;
   text-align: center;
   letter-spacing: 1px;
 
@@ -40,13 +37,7 @@
 
 @media (max-width: 990px) {
   .root {
-    gap: 60px;
+    gap: 50px;
     padding: 40px 20px 60px;
-  }
-}
-
-@media (max-width: 770px) {
-  .root {
-    gap: 30px;
   }
 }

@@ -36,6 +36,8 @@ export const BoatPage = () => {
 
       <Layout>
         <div className={styles.showcase}>
+          <h1 className={styles.titleMobile}>{capitalize(slug)}</h1>
+
           <div className={styles.photos}>
             <Link
               onClick={(e) => handleClick(e)}

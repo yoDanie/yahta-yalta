@@ -26,6 +26,27 @@ export const GalleryPage = () => {
 
   if (!images) return null
 
+  const getThumbsSliderPerView = () => {
+    const breakpoints = {
+      small: window.matchMedia('(max-width: 600px)'),
+      medium: window.matchMedia('(min-width: 601px) and (max-width: 1024px)'),
+      large: window.matchMedia('(min-width: 1025px) and (max-width: 1440px)'),
+      extraLarge: window.matchMedia('(min-width: 1441px)'),
+    }
+
+    if (breakpoints.small.matches) {
+      return 3
+    } else if (breakpoints.medium.matches) {
+      return 4
+    } else if (breakpoints.large.matches) {
+      return 5
+    } else if (breakpoints.extraLarge.matches) {
+      return 6
+    }
+
+    return 3
+  }
+
   return (
     <div className={styles.root}>
       <Link href={`/boat/${data?.name}`} className={styles.close}>
@@ -61,7 +82,7 @@ export const GalleryPage = () => {
       <div className={styles.thumbsContainer}>
         <Swiper
           spaceBetween={10}
-          slidesPerView={6}
+          slidesPerView={getThumbsSliderPerView()}
           modules={[FreeMode, Navigation, Thumbs]}
           onSwiper={setThumbsSwiper}
           freeMode
