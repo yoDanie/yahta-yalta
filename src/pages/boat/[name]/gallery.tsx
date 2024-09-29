@@ -1,11 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { getBoatData } from 'getBoatData'
 import CloseIcon from 'icons/cross.svg'
 import { useRouter } from 'next/router'
 import { Controller, FreeMode, Keyboard, Navigation, Thumbs } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import type { GetBoadDataReturn } from 'getBoatData'
+import type { GetStaticProps } from 'next'
 
 import { Image, Link } from 'components'
-import { useBoatData } from 'hooks'
 
 import styles from './index.module.scss'
 import { useEscapeKey } from '../../../pageComponents/boat/useEscapeKey'
@@ -14,38 +16,51 @@ const modEnabled = {
   enabled: true,
 }
 
-export const GalleryPage = () => {
-  const { data, images } = useBoatData()
+export const getStaticPaths = async () => ({
+  paths: [],
+  fallback: 'blocking',
+})
 
+export const getStaticProps = (async (context) => ({
+  props: { ...getBoatData(context.params?.name! as string) },
+})) satisfies GetStaticProps<GetBoadDataReturn>
+
+export const GalleryPage = ({ data, images }: GetBoadDataReturn) => {
   const router = useRouter()
   const { initialSlide = 0 } = router?.query
 
   useEscapeKey()
 
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
+  const [thumbsSliderPerView, setThumbsSliderPerView] = useState(3)
 
-  if (!images) return null
+  useEffect(() => {
+    const getThumbsSliderPerView = () => {
+      const breakpoints = {
+        small: window.matchMedia('(max-width: 600px)'),
+        medium: window.matchMedia('(min-width: 601px) and (max-width: 1024px)'),
+        large: window.matchMedia('(min-width: 1025px) and (max-width: 1440px)'),
+        extraLarge: window.matchMedia('(min-width: 1441px)'),
+      }
 
-  const getThumbsSliderPerView = () => {
-    const breakpoints = {
-      small: window.matchMedia('(max-width: 600px)'),
-      medium: window.matchMedia('(min-width: 601px) and (max-width: 1024px)'),
-      large: window.matchMedia('(min-width: 1025px) and (max-width: 1440px)'),
-      extraLarge: window.matchMedia('(min-width: 1441px)'),
-    }
+      if (breakpoints.small.matches) {
+        return 3
+      } else if (breakpoints.medium.matches) {
+        return 4
+      } else if (breakpoints.large.matches) {
+        return 5
+      } else if (breakpoints.extraLarge.matches) {
+        return 6
+      }
 
-    if (breakpoints.small.matches) {
       return 3
-    } else if (breakpoints.medium.matches) {
-      return 4
-    } else if (breakpoints.large.matches) {
-      return 5
-    } else if (breakpoints.extraLarge.matches) {
-      return 6
     }
 
-    return 3
-  }
+    // Only run on client side
+    if (typeof window !== 'undefined') {
+      setThumbsSliderPerView(getThumbsSliderPerView())
+    }
+  }, [])
 
   return (
     <div className={styles.root}>
@@ -82,7 +97,7 @@ export const GalleryPage = () => {
       <div className={styles.thumbsContainer}>
         <Swiper
           spaceBetween={10}
-          slidesPerView={getThumbsSliderPerView()}
+          slidesPerView={thumbsSliderPerView}
           modules={[FreeMode, Navigation, Thumbs]}
           onSwiper={setThumbsSwiper}
           freeMode

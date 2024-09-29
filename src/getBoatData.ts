@@ -1,7 +1,4 @@
 import { orderedBoatsData } from 'data'
-import { useRouter } from 'next/router'
-
-export type UseBoatDataReturn = ReturnType<typeof useBoatData>
 
 const imagesContext = require.context('/public/images/boats', true)
 
@@ -29,13 +26,12 @@ const groupImagesByFolder = (context: __WebpackModuleApi.RequireContext): Groupe
 
 const imagesByFolder = groupImagesByFolder(imagesContext)
 
-export const useBoatData = (name?: string) => {
-  const router = useRouter()
-  const boatName = name || (router.query.name as string)
-
+export const getBoatData = (boatName: string) => {
   const data = orderedBoatsData.find(({ name }) => name === boatName)!
   const images = imagesByFolder[boatName]
   const mainImage = images?.[0]
 
   return { data, images, mainImage }
 }
+
+export type GetBoadDataReturn = ReturnType<typeof getBoatData>

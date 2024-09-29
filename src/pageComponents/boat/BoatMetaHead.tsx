@@ -1,8 +1,9 @@
 import { boatTypeMapping, dashChar } from 'consts'
 import Head from 'next/head'
+import type { GetBoadDataReturn } from 'getBoatData'
 
-import { useBoatData } from 'hooks'
 import { capitalize } from 'utils'
+import type { UseBoatDataReturn } from 'hooks'
 
 const keywordsMapping = {
   sailing: 'парусная яхта в ялте, парусник ялта, прогулка под парусом,',
@@ -10,12 +11,8 @@ const keywordsMapping = {
   catamaran: 'катамаран ялта, яхта-катамаран',
 }
 
-export const BoatMetaHead = () => {
-  const {
-    data: { name, slug, type },
-    mainImage,
-  } = useBoatData()
-
+export const BoatMetaHead = ({ data: { slug, type, name }, mainImage }: GetBoadDataReturn) => {
+  // }: UseBoatDataReturn['data'] & { mainImage: UseBoatDataReturn['mainImage'] }) => {
   const textAddition = type === 'catamaran' ? '' : 'яхта'
 
   const titleMainPart = `${capitalize(slug)} ${dashChar} ${boatTypeMapping[type]} ${textAddition}`

@@ -1,8 +1,8 @@
 import { boatIconMapping, boatTypeMapping } from 'consts'
+import { getBoatData } from 'getBoatData'
 import Link from 'next/link'
 
 import { BoatClauseMapping, Image } from 'components'
-import { useBoatData } from 'hooks'
 import { capitalize, formatPrice } from 'utils'
 
 import styles from './index.module.scss'
@@ -12,8 +12,7 @@ type BoatProps = {
 }
 
 export const Boat = ({ boatName }: BoatProps) => {
-  const { data, mainImage } = useBoatData(boatName)
-  if (!data) return null
+  const { data, mainImage } = getBoatData(boatName)
 
   const { name, capacity, slug, type, price } = data
 

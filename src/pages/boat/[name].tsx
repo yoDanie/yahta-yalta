@@ -1,23 +1,32 @@
 import cn from 'classnames'
-import { Metadata } from 'next'
+import { getBoatData } from 'getBoatData'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { DefaultMetaHead } from 'pageComponents/DefaultMetaHead'
+import type { GetBoadDataReturn } from 'getBoatData'
+import type { GetStaticProps } from 'next'
 
 import { Boats, Contacts, Image, Layout } from 'components'
-import { useBoatData } from 'hooks'
 import { capitalize } from 'utils'
 
 import styles from './index.module.scss'
 import { BoatMetaHead } from '../../pageComponents/boat/BoatMetaHead'
 import { BoatParameters } from '../../pageComponents/boat/BoatParameters'
 
-export const BoatPage = () => {
-  const { data, images, mainImage } = useBoatData()
-  const router = useRouter()
-  if (!data) return null
+export const getStaticPaths = async () => ({
+  paths: [],
+  fallback: 'blocking',
+})
+export const getStaticProps = (async (context) => ({
+  props: { ...getBoatData(context.params?.name! as string) },
+})) satisfies GetStaticProps<GetBoadDataReturn>
 
+export const BoatPage = (staticBoatDataProps: GetBoadDataReturn) => {
+  const { data, images, mainImage } = staticBoatDataProps
   const { slug, name, description } = data
+
+  const router = useRouter()
+
   const thumbs = images.slice(1, 4)
 
   const handleClick = (e: any, index = 0) => {
@@ -31,7 +40,7 @@ export const BoatPage = () => {
   return (
     <>
       <DefaultMetaHead />
-      <BoatMetaHead />
+      <BoatMetaHead {...staticBoatDataProps} />
 
       <Layout>
         <div className={styles.showcase}>
