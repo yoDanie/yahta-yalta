@@ -39,7 +39,6 @@ export const BoatPage = (staticBoatDataProps: GetBoadDataReturn) => {
 
   return (
     <>
-      <DefaultMetaHead />
       <BoatMetaHead {...staticBoatDataProps} />
 
       <Layout>

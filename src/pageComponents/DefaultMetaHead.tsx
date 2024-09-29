@@ -1,3 +1,4 @@
+import { baseURL } from 'consts'
 import Head from 'next/head'
 
 type DefaultMetaHeadProps = {
@@ -9,12 +10,10 @@ export const DefaultMetaHead = ({ title }: DefaultMetaHeadProps) => {
 
   return (
     <Head>
-      {/* <meta property="og:url" content={window.location.href} /> */}
+      <meta property="og:url" content={baseURL} />
       <meta property="og:type" content="website" />
-
       <title>{targetTitle}</title>
       <meta property="og:title" content={targetTitle} />
-
       <meta
         name="description"
         content="Аренда яхты и катера в Ялте, с капитаном. От 5 000 руб/в час. Морские прогулки к замку Ласточкино гнездо, Медведь-горе... Рыбалка и готовка яхте. Морские экскурсии"
