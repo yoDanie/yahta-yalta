@@ -1,5 +1,3 @@
-import Head from 'next/head'
-
 import { Contacts, Layout } from 'components'
 
 import styles from './index.module.scss'
@@ -8,10 +6,7 @@ import { DefaultMetaHead } from '../../pageComponents/DefaultMetaHead'
 export const ContactsPage = () => {
   return (
     <>
-      <DefaultMetaHead />
-      <Head>
-        <title>Контакты | Яхта-Ялта</title>
-      </Head>
+      <DefaultMetaHead title="Контакты | Яхта-Ялта" />
 
       <Layout>
         <div className={styles.root}>

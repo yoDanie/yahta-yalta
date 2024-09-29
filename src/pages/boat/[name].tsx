@@ -30,8 +30,7 @@ export const BoatPage = () => {
 
   return (
     <>
-      {/* <DefaultMetaHead /> */}
-
+      <DefaultMetaHead />
       <BoatMetaHead />
 
       <Layout>
