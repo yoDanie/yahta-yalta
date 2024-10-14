@@ -68,6 +68,7 @@ export const GalleryPage = ({ data, images }: GetBoadDataReturn) => {
         <Image placeholder="empty" src={CloseIcon} alt="закрыть" />
       </Link>
 
+      {/* <Carousel images={images} /> */}
       <div className={styles.mainContainer}>
         <Swiper
           loop
@@ -98,7 +99,7 @@ export const GalleryPage = ({ data, images }: GetBoadDataReturn) => {
         <Swiper
           spaceBetween={10}
           slidesPerView={thumbsSliderPerView}
-          modules={[FreeMode, Navigation, Thumbs]}
+          modules={[FreeMode, Navigation]}
           onSwiper={setThumbsSwiper}
           freeMode
           watchSlidesProgress
