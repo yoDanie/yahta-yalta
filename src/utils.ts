@@ -1,3 +1,5 @@
+// delete me
+
 export const capitalize = (s?: string) => s && s[0].toUpperCase() + s.slice(1).toLowerCase()
 
 export const throttle = (cb: any, delay: number = 200) => {
