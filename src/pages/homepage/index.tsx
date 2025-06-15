@@ -1,3 +1,5 @@
+import { Reviews } from 'pageComponents/home/Reviews'
+
 import { Boats, Layout } from 'components'
 
 import { DefaultMetaHead } from '../../pageComponents/DefaultMetaHead'
@@ -15,7 +17,7 @@ export const HomePage = () => (
       {/* <Section title="Контакты">
         <Contacts />
       </Section> */}
-      {/* <Reviews /> */}
+      <Reviews />
     </Layout>
   </>
 )
